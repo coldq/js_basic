@@ -1,8 +1,6 @@
 # Summary
 
-* [1.Js基础]()
-    * [1.1 prototype和__proto__的关系是什么](basic/prototype.md)
-    
-
-
+* [Introduction](README.md)
+* [1.Js基础](1jsji-chu.md)
+  * [1.1 prototype和proto的关系是什么](basic/prototype.md)
 
