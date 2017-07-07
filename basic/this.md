@@ -8,13 +8,13 @@
     这时候this指向了window。
     代码-1
     ```
-    function b(){
+    function foo(){
       var a = 2;
-      function aa(){
+      function bar(){
         console.log(this.a)
       }
-      aa();
+      bar();
     }
-    b();//console undefined
+    foo();//console undefined
     ```
-    这段代码中
+    这段代码中,foo函数中的bar函数运行时，由于默认绑定，this指向window，a未定义导致输出为undefined。
