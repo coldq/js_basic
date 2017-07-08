@@ -114,4 +114,28 @@ var obj = {
 doFoo(obj.foo)//Window{...}
 ```
 
+#### 4. 小结
+
+1. 当函数被一个对象调用，this指向对象；
+
+2. 当函数被独立调用，this指向Window；
+
+3. call，apply 中指向谁，this就指向谁，如下。
+
+```
+function foo(){
+    console.log(this.a);
+}
+
+function doFoo(fn){
+    fn.call(obj);
+}
+
+var obj = {
+    a : 2,
+    foo:foo
+}
+var a = "hello world";
+doFoo(obj.foo) // 2
+```
 
