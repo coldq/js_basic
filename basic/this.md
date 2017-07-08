@@ -134,7 +134,19 @@ var a = "hello world";
 doFoo(obj.foo) // 2
 ```
 
-#### 5. 小结
+#### 5. new新对象绑定
+
+如果是一个构造函数，那么用new来调用，那么绑定的将是新创建的对象。
+
+```
+function fn(a) {
+    this.a = a;
+}
+var bar = new fn( 2 );
+console.log( bar.a );// 2
+```
+
+#### 6. 小结
 
 1. 当函数被一个对象调用，this指向函数最近的对象；
 
