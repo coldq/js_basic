@@ -17,7 +17,19 @@ function foo(){
 foo();// undefined
 ```
 
-这段代码中,foo函数中的bar函数运行时，由于默认绑定，this指向window，a未定义导致输出为undefined。
+这段代码中,foo函数中的bar函数运行时，由于默认绑定，this指向window，a未定义导致输出为undefined。下面代码中foo函数输出0，印证了这一点。
+
+```
+var a = 0;
+function foo(){
+  var a = 2;
+  function bar(){
+    console.log(this.a)
+  }
+  bar();
+}
+foo();// 0
+```
 
 #### 2. 隐式绑定
 
@@ -43,5 +55,63 @@ objContainer.obj.foo();//2
 然而，调用位置会使用obj上下文来引用函数，因此你可以说函数被调用时obj对象“拥有”或者“包含”它。
  
 无论你如何称呼，当foo()被调用时，它的前面确实加上了对obj的引用，隐式绑定规则会把函数调用中的this绑定到这个上下文对象。 
-对象属性引用链只有上一层或者说最后一层在调用中起作用。
+
+对象属性引用链只有上一层或者说最后一层在调用中起作用。简单地说，foo函数中this指向调用它的对象。
+
+#### 3. 隐式丢失
+
+```
+function foo(){
+    console.log(this.a);
+}
+
+var obj = {
+    a : 2，
+    foo : foo　　　　
+}
+
+var bar = obj.foo;
+var a = "suprise";
+bar ();//suprise
+```
+这种情况中，bar函数输出的是"suprise"，this改变了，obj中的a变量丢失了。
+
+```
+function foo(){
+    console.log(this.a);
+}
+
+function doFoo(fn){
+    var a = 3;
+    fn();
+}
+
+var obj = {
+    a : 2,
+    foo:foo
+}
+
+var a = "hello world";
+
+doFoo(obj.foo)//hello world
+```
+
+foo函数被doFoo调用，obj中的a变量丢失。
+
+事实上，个人这种情况和默认绑定有类似，当一个函数独立被调用，而不是被一个对象调用，this都指向了window。
+
+```
+function foo(){
+    console.log(this);
+}
+function doFoo(fn){   
+    fn();
+}
+var obj = {
+    a : 2,
+    foo:foo
+}
+doFoo(obj.foo)//Window{...}
+```
+
 
