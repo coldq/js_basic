@@ -10,7 +10,9 @@
 在new一个对象的过程中，
 
 ```
-var Person = function () { };
+var Person = function () {
+this.a = 'a';
+ };
 var p = new Person();
 
 //实际上的过程：
