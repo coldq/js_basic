@@ -7,7 +7,7 @@
 (Function.prototype)是对象。因此，它们都会具有对象共有的特点。
 即：对象具有属性__proto__，可称为隐式原型，一个对象的隐式原型指向构造该对象的构造函数的原型，这也保证了实例能够访问在构造函数原型中定义的属性和方法。
 
-在new一个对象的过程中，
+在new一个对象的过程中，对象的__proto__指向其构造函数的prototype。
 
 ```
 var Person = function () {
@@ -20,7 +20,7 @@ var p={}; //也就是说，初始化一个对象p。
 
 p.__proto__=Person.prototype;
 
-Person.call(p);//也就是说构造p，也可以称之为初始化p。p中a初始化为'a'
+Person.call(p);//也就是说构造p，也可以称之为初始化p,p中a初始化为'a'
 
 ```
 
@@ -43,7 +43,7 @@ Programmer.prototype.Salary = 500;
 var p = new Programmer();
 p.Say();
 p.WriteCode();
-alert(p.Salary);
+alert(p.Salary);//500
 
 ```
 其中：
