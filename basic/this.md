@@ -152,7 +152,7 @@ console.log( bar.a );// 2
 
 2. 当函数被独立调用，this指向Window；
 
-3. call，apply 中指向谁，this就指向谁，如下。
+3. call，apply 中指向谁，this就指向谁。
 
 
 
