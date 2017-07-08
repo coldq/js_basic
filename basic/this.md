@@ -113,14 +113,9 @@ var obj = {
 }
 doFoo(obj.foo)//Window{...}
 ```
+#### 4. 显示绑定
 
-#### 4. 小结
-
-1. 当函数被一个对象调用，this指向函数最近的对象；
-
-2. 当函数被独立调用，this指向Window；
-
-3. call，apply 中指向谁，this就指向谁，如下。
+学bind()\apply()\call()函数，接收的第一个参数即是上下文对象并将其赋给this。
 
 ```
 function foo(){
@@ -138,4 +133,14 @@ var obj = {
 var a = "hello world";
 doFoo(obj.foo) // 2
 ```
+
+#### 5. 小结
+
+1. 当函数被一个对象调用，this指向函数最近的对象；
+
+2. 当函数被独立调用，this指向Window；
+
+3. call，apply 中指向谁，this就指向谁，如下。
+
+
 
