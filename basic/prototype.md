@@ -38,6 +38,6 @@ f1和f2是Foo这个对象的两个实例，这两个对象也有属性__proto__�
 最后，Object.prototype的__proto__属性指向null。
 
 总结：
-1. 对象有属性__proto__,指向该对象的构造函数的原型对象。
+1. **对象有属性__proto__,指向该对象的构造函数的原型对象**。
 
-2. 方法除了有属性__proto__,还有属性prototype，prototype指向该方法的原型对象。
+2. **方法除了有属性__proto__,还有属性prototype，prototype指向该方法的原型对象。**
