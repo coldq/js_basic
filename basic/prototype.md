@@ -47,8 +47,10 @@ alert(p.Salary);//500
 
 ```
 其中：
+```
 p.__proto__ = Programmer.prototype;
 p.__proto__ .__proto__  = Person.prototype.
+```
 
 
 #### 2. 方法(Function)
