@@ -20,7 +20,7 @@ var p={}; //也就是说，初始化一个对象p。
 
 p.__proto__=Person.prototype;
 
-Person.call(p);//也就是说构造p，也可以称之为初始化p。
+Person.call(p);//也就是说构造p，也可以称之为初始化p。p中a初始化为'a'
 
 ```
 
