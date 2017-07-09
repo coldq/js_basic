@@ -27,3 +27,11 @@
 |
 
 ## 解決方法
+
+1、使用[jsonp](jsonp.md)
+
+2、服务端代理
+
+3、HTTP访问控制[CORS](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS)
+
+设置Access-Control-Allow-Origin。
