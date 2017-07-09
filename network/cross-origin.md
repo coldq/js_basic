@@ -25,3 +25,5 @@
 |http://news.company.com/dir/other.html	       | 失败    |   不同的域名 ( news )
 
 |
+
+## 解決方法
