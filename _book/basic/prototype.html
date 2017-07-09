@@ -1,0 +1,335 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>1.1 prototype和proto的关系是什么 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="this.html" />
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    1.Js基础
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.2.1" data-path="prototype.html">
+            
+                <a href="prototype.html">
+            
+                    
+                    1.1 prototype和proto的关系是什么
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="this.html">
+            
+                <a href="this.html">
+            
+                    
+                    1.2 this关键字
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >1.1 prototype和proto的关系是什么</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="prototype&#x548C;proto&#x7684;&#x5173;&#x7CFB;&#x662F;&#x4EC0;&#x4E48;">prototype&#x548C;<strong>proto</strong>&#x7684;&#x5173;&#x7CFB;&#x662F;&#x4EC0;&#x4E48;</h1>
+<p>&#x9996;&#x5148;&#xFF0C;&#x8981;&#x660E;&#x786E;&#x51E0;&#x4E2A;&#x70B9;&#xFF1A;</p>
+<h4 id="1-&#x5728;js&#x91CC;&#xFF0C;&#x4E07;&#x7269;&#x7686;&#x5BF9;&#x8C61;&#x3002;&#x65B9;&#x6CD5;&#xFF08;function&#xFF09;&#x662F;&#x5BF9;&#x8C61;&#xFF0C;&#x65B9;&#x6CD5;&#x7684;&#x539F;&#x578B;">1. &#x5728;JS&#x91CC;&#xFF0C;&#x4E07;&#x7269;&#x7686;&#x5BF9;&#x8C61;&#x3002;&#x65B9;&#x6CD5;&#xFF08;Function&#xFF09;&#x662F;&#x5BF9;&#x8C61;&#xFF0C;&#x65B9;&#x6CD5;&#x7684;&#x539F;&#x578B;</h4>
+<p>(Function.prototype)&#x662F;&#x5BF9;&#x8C61;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x5B83;&#x4EEC;&#x90FD;&#x4F1A;&#x5177;&#x6709;&#x5BF9;&#x8C61;&#x5171;&#x6709;&#x7684;&#x7279;&#x70B9;&#x3002;
+&#x5373;&#xFF1A;&#x5BF9;&#x8C61;&#x5177;&#x6709;&#x5C5E;&#x6027;<strong>proto</strong>&#xFF0C;&#x53EF;&#x79F0;&#x4E3A;&#x9690;&#x5F0F;&#x539F;&#x578B;&#xFF0C;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x9690;&#x5F0F;&#x539F;&#x578B;&#x6307;&#x5411;&#x6784;&#x9020;&#x8BE5;&#x5BF9;&#x8C61;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x539F;&#x578B;&#xFF0C;&#x8FD9;&#x4E5F;&#x4FDD;&#x8BC1;&#x4E86;&#x5B9E;&#x4F8B;&#x80FD;&#x591F;&#x8BBF;&#x95EE;&#x5728;&#x6784;&#x9020;&#x51FD;&#x6570;&#x539F;&#x578B;&#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x5728;new&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x5BF9;&#x8C61;&#x7684;<strong>proto</strong>&#x6307;&#x5411;&#x5176;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;prototype&#x3002;</p>
+<pre><code>var Person = function () {
+this.a = &apos;a&apos;;
+ };
+var p = new Person();
+
+//&#x5B9E;&#x9645;&#x4E0A;&#x7684;&#x8FC7;&#x7A0B;&#xFF1A;
+var p={}; //&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;p&#x3002;
+
+p.__proto__=Person.prototype;
+
+Person.call(p);//&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x6784;&#x9020;p&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x79F0;&#x4E4B;&#x4E3A;&#x521D;&#x59CB;&#x5316;p,p&#x4E2D;a&#x521D;&#x59CB;&#x5316;&#x4E3A;&apos;a&apos;
+</code></pre><p>&#x539F;&#x578B;&#x94FE;&#x5C42;&#x5C42;&#x94FE;&#x63A5;&#xFF0C;&#x5728;&#x67E5;&#x627E;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x4ECE;&#x6700;&#x8FD1;&#x7684;&#x5F00;&#x59CB;&#x3002;</p>
+<pre><code>var Person = function () { };
+Person.prototype.Say = function () {
+    alert(&quot;Person say&quot;);
+}
+Person.prototype.Salary = 50000;
+
+var Programmer = function () { };
+Programmer.prototype = new Person();
+Programmer.prototype.WriteCode = function () {
+    alert(&quot;programmer writes code&quot;);
+};
+
+Programmer.prototype.Salary = 500;
+
+var p = new Programmer();
+p.Say();
+p.WriteCode();
+alert(p.Salary);//500
+</code></pre><p>&#x5176;&#x4E2D;&#xFF1A;</p>
+<pre><code>p.__proto__ = Programmer.prototype;
+p.__proto__ .__proto__  = Person.prototype.
+</code></pre><h4 id="2-&#x65B9;&#x6CD5;function">2. &#x65B9;&#x6CD5;(Function)</h4>
+<p><strong><em>&#x65B9;&#x6CD5;</em>&#x8FD9;&#x4E2A;&#x7279;&#x6B8A;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x9664;&#x4E86;&#x548C;&#x5176;&#x4ED6;&#x5BF9;&#x8C61;&#x4E00;&#x6837;&#x6709;&#x4E0A;&#x8FF0;<em>proto</em>&#x5C5E;&#x6027;&#x4E4B;&#x5916;&#xFF0C;&#x8FD8;&#x6709;&#x81EA;&#x5DF1;&#x7279;&#x6709;&#x7684;&#x5C5E;&#x6027;&#x2014;&#x2014;&#x539F;&#x578B;&#x5C5E;&#x6027;&#xFF08;prototype&#xFF09;</strong>&#xFF0C;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x662F;&#x4E00;&#x4E2A;&#x6307;&#x9488;&#xFF0C;&#x6307;&#x5411;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x7528;&#x9014;&#x5C31;&#x662F;&#x5305;&#x542B;&#x6240;&#x6709;&#x5B9E;&#x4F8B;&#x5171;&#x4EAB;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;&#xFF08;&#x6211;&#x4EEC;&#x628A;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x53EB;&#x505A;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#xFF09;&#x3002;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x4E5F;&#x6709;&#x4E00;&#x4E2A;&#x5C5E;&#x6027;&#xFF0C;&#x53EB;&#x505A;constructor&#xFF0C;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x5305;&#x542B;&#x4E86;&#x4E00;&#x4E2A;&#x6307;&#x9488;&#xFF0C;&#x6307;&#x56DE;&#x539F;&#x6784;&#x9020;&#x51FD;&#x6570;&#x3002;</p>
+<p>&#x597D;&#x5566;&#xFF0C;&#x77E5;&#x9053;&#x4E86;&#x8FD9;&#x4E24;&#x4E2A;&#x57FA;&#x672C;&#x70B9;&#xFF0C;&#x6765;&#x770B;&#x770B;&#x8FD9;&#x526F;&#x56FE;&#x3002;</p>
+<p><img src="../image/1.1-1.png" alt=""></p>
+<h5 id="1-&#x6784;&#x9020;&#x51FD;&#x6570;foo">1. &#x6784;&#x9020;&#x51FD;&#x6570;Foo()</h5>
+<p>&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x539F;&#x578B;&#x5C5E;&#x6027;Foo.prototype&#x6307;&#x5411;&#x4E86;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#xFF0C;&#x5728;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x91CC;&#x6709;&#x5171;&#x6709;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x6240;&#x6709;&#x6784;&#x9020;&#x51FD;&#x6570;&#x58F0;&#x660E;&#x7684;&#x5B9E;&#x4F8B;&#xFF08;&#x8FD9;&#x91CC;&#x662F;f1&#xFF0C;f2&#xFF09;&#x90FD;&#x53EF;&#x4EE5;&#x5171;&#x4EAB;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x3002;</p>
+<h5 id="2-&#x539F;&#x578B;&#x5BF9;&#x8C61;fooprototype">2. &#x539F;&#x578B;&#x5BF9;&#x8C61;Foo.prototype</h5>
+<p>Foo.prototype&#x4FDD;&#x5B58;&#x7740;&#x5B9E;&#x4F8B;&#x5171;&#x4EAB;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x6709;&#x4E00;&#x4E2A;&#x6307;&#x9488;constructor&#x6307;&#x56DE;&#x6784;&#x9020;&#x51FD;&#x6570;&#x3002;</p>
+<h5 id="3-&#x5B9E;&#x4F8B;">3. &#x5B9E;&#x4F8B;</h5>
+<p>f1&#x548C;f2&#x662F;Foo&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x4E24;&#x4E2A;&#x5B9E;&#x4F8B;&#xFF0C;&#x8FD9;&#x4E24;&#x4E2A;&#x5BF9;&#x8C61;&#x4E5F;&#x6709;&#x5C5E;&#x6027;<strong>proto</strong>&#xFF0C;&#x6307;&#x5411;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#xFF0C;&#x8FD9;&#x6837;&#x5B50;&#x5C31;&#x53EF;&#x4EE5;&#x50CF;&#x4E0A;&#x9762;1&#x6240;&#x8BF4;&#x7684;&#x8BBF;&#x95EE;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x7684;&#x6240;&#x6709;&#x65B9;&#x6CD5;&#x5566;&#x3002;</p>
+<p>&#x53E6;&#x5916;&#xFF1A;</p>
+<p>&#x6784;&#x9020;&#x51FD;&#x6570;Foo()&#x9664;&#x4E86;&#x662F;&#x65B9;&#x6CD5;&#xFF0C;&#x4E5F;&#x662F;&#x5BF9;&#x8C61;&#x554A;&#xFF0C;&#x5B83;&#x4E5F;&#x6709;<strong>proto</strong>&#x5C5E;&#x6027;&#xFF0C;&#x6307;&#x5411;&#x8C01;&#x5462;&#xFF1F;</p>
+<p>&#x6307;&#x5411;&#x5B83;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x5457;&#x3002;&#x51FD;&#x6570;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4E0D;&#x5C31;&#x662F;Function&#x561B;&#xFF0C;&#x56E0;&#x6B64;&#x8FD9;&#x91CC;&#x7684;<strong>proto</strong>&#x6307;&#x5411;&#x4E86;Function.prototype&#x3002;
+&#x5176;&#x5B9E;&#x9664;&#x4E86;Foo()&#xFF0C;Function(), Object()&#x4E5F;&#x662F;&#x4E00;&#x6837;&#x7684;&#x9053;&#x7406;&#x3002;</p>
+<p>&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x4E5F;&#x662F;&#x5BF9;&#x8C61;&#x554A;&#xFF0C;&#x5B83;&#x7684;<strong>proto</strong>&#x5C5E;&#x6027;&#xFF0C;&#x53C8;&#x6307;&#x5411;&#x8C01;&#x5462;&#xFF1F;
+&#x540C;&#x7406;&#xFF0C;&#x6307;&#x5411;&#x5B83;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x5457;&#x3002;&#x8FD9;&#x91CC;&#x662F;Object.prototype.</p>
+<p>&#x6700;&#x540E;&#xFF0C;Object.prototype&#x7684;<strong>proto</strong>&#x5C5E;&#x6027;&#x6307;&#x5411;null&#x3002;</p>
+<p>&#x603B;&#x7ED3;&#xFF1A;</p>
+<ol>
+<li><p><strong>&#x5BF9;&#x8C61;&#x6709;&#x5C5E;&#x6027;<strong>proto</strong>,&#x6307;&#x5411;&#x8BE5;&#x5BF9;&#x8C61;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x539F;&#x578B;&#x5BF9;&#x8C61;</strong>&#x3002;</p>
+</li>
+<li><p><strong>&#x65B9;&#x6CD5;&#x9664;&#x4E86;&#x6709;&#x5C5E;&#x6027;<strong>proto</strong>,&#x8FD8;&#x6709;&#x5C5E;&#x6027;prototype&#xFF0C;prototype&#x6307;&#x5411;&#x8BE5;&#x65B9;&#x6CD5;&#x7684;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x3002;</strong></p>
+</li>
+</ol>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+                <a href="this.html" class="navigation navigation-next navigation-unique" aria-label="Next page: 1.2 this关键字">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"1.1 prototype和proto的关系是什么","level":"1.2.1","depth":2,"next":{"title":"1.2 this关键字","level":"1.2.2","depth":2,"path":"basic/this.md","ref":"basic/this.md","articles":[]},"previous":{"title":"1.Js基础","level":"1.2","depth":1,"ref":"","articles":[{"title":"1.1 prototype和proto的关系是什么","level":"1.2.1","depth":2,"path":"basic/prototype.md","ref":"basic/prototype.md","articles":[]},{"title":"1.2 this关键字","level":"1.2.2","depth":2,"path":"basic/this.md","ref":"basic/this.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"basic/prototype.md","mtime":"2017-07-08T05:13:29.617Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-07-08T05:16:04.336Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
