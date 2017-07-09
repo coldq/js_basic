@@ -1,3 +1,3 @@
 ## 关于JSON和JSONP
 
-![参考](www)
+[参考](www)
