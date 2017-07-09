@@ -4,6 +4,7 @@
 * [1. Js基础]()
   * [1.1 prototype和proto的关系是什么](basic/prototype.md)
   * [1.2 this关键字](basic/this.md)
+  * [1.3 作用域链](basic/scope-chain.md)
 * [2. CSS基础]()
   * [2.1 display:inline-block 和 float 水平排列区别](css/display-float.md)
 * [3. 网络相关]()
