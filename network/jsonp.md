@@ -153,8 +153,31 @@ flightHandler({
     "tickets": 5
 });
 　　我们看到，传递给flightHandler函数的是一个json，它描述了航班的基本信息。运行一下页面，成功弹出提示窗口，jsonp的执行全过程顺利完成！
+#### 4、后台jsonp请求响应的实现
+这是express4.12.3关于jsonp的实现代码:
 
-#### 4、jQuery如何实现jsonp调用？
+```
+  // jsonp
+  if (typeof callback === 'string' && callback.length !== 0) {
+    this.charset = 'utf-8';
+    this.set('X-Content-Type-Options', 'nosniff');
+    this.set('Content-Type', 'text/javascript');
+
+    // restrict callback charset
+    callback = callback.replace(/[^\[\]\w$.]/g, '');
+
+    // replace chars not allowed in JavaScript that are in JSON
+    body = body
+      .replace(/\u2028/g, '\\u2028')
+      .replace(/\u2029/g, '\\u2029');
+
+    // the /**/ is a specific security mitigation for "Rosetta Flash JSONP abuse"
+    // the typeof check is just to reduce client error noise
+    body = '/**/ typeof ' + callback + ' === \'function\' && ' + callback + '(' + body + ');';
+  }
+ ```
+  
+#### 5、jQuery如何实现jsonp调用？
 
 jQuery使用jsonp的代码:
 ```
