@@ -12,4 +12,7 @@
 * [4. Js框架相关]()
 * [5. Else]()
   * [4.1 牛客网Node.js输入](else/nowCoder.md)
+  * [4.2 首屏，白屏时间如何计算](else/firstScreen.md)
+
+
 
