@@ -191,7 +191,7 @@ jquery在处理jsonp类型的ajax时（虽然jquery也把jsonp归入了ajax，�
 
 2、但ajax和jsonp其实本质上是不同的东西。ajax的核心是通过XmlHttpRequest获取非本页内容，_而jsonp的核心则是动态添加<script>标签来调用服务器提供的js脚本_。
 
-　　
+
 3、所以说，其实ajax与jsonp的区别不在于是否跨域，ajax通过服务端代理一样可以实现跨域，jsonp本身也不排斥同域的数据的获取。
 
 
