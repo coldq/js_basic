@@ -32,6 +32,8 @@
 
 2、服务端代理
 
+在服务器端设置一个代理，由服务器端向跨域下的网站发出请求，再将请求结果返回给前端，成功避免同源策略的限制。
+
 3、HTTP访问控制[CORS](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS)
 
 设置Access-Control-Allow-Origin。
