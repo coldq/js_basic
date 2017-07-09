@@ -13,11 +13,16 @@ JSON(JavaScript Object Notation)和JSONP(JSON with Padding)虽然只有一个字
 JSON是一种基于文本的数据交换方式，或者叫做数据描述格式，你是否该选用他首先肯定要关注它所拥有的优点。
 
 JSON的优点：
-　　1、基于纯文本，跨平台传递极其简单；
-　　2、Javascript原生支持，后台语言几乎全部支持；
-　　3、轻量级数据格式，占用字符数量极少，特别适合互联网传递；
-　　4、可读性较强，虽然比不上XML那么一目了然，但在合理的依次缩进之后还是很容易识别的；
-　　5、容易编写和解析，当然前提是你要知道数据结构；
+
+1、基于纯文本，跨平台传递极其简单；
+
+2、Javascript原生支持，后台语言几乎全部支持；
+
+3、轻量级数据格式，占用字符数量极少，特别适合互联网传递；
+
+4、可读性较强，虽然比不上XML那么一目了然，但在合理的依次缩进之后还是很容易识别的；
+
+5、容易编写和解析，当然前提是你要知道数据结构；
 
 JSON的缺点当然也有，但在作者看来实在是无关紧要的东西，所以不再单独说明。
 
@@ -52,7 +57,141 @@ JSON能够以非常简单的方式来描述数据结构，XML能做的它都能�
 
 　　不管jQuery也好，ExtJs也罢，又或者是其他支持jsonp的框架，他们幕后所做的工作都是一样的，下面我来循序渐进的说明一下jsonp在客户端的实现：
 
-1、我们知道，哪怕跨域js文件中的代码（当然指符合web脚本安全策略的），web页面也是可以无条件执行的。    
+#### 1、我们知道，哪怕跨域js文件中的代码（当然指符合web脚本安全策略的），web页面也是可以无条件执行的。    
 
 远程服务器remoteserver.com根目录下有个remote.js文件代码如下：
-`alert('我是远程文件');`
+```
+alert('我是远程文件');
+```
+
+本地服务器localserver.com下有个jsonp.html页面代码如下：
+```
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script type="text/javascript" src="http://remoteserver.com/remote.js"></script>
+</head>
+<body>
+ 
+</body>
+</html>
+```
+
+毫无疑问，页面将会弹出一个提示窗体，显示跨域调用成功。
+
+#### 2、现在我们在jsonp.html页面定义一个函数，然后在远程remote.js中传入数据进行调用。
+
+jsonp.html页面代码如下：
+
+```
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script type="text/javascript">
+    var localHandler = function(data){
+        alert('我是本地函数，可以被跨域的remote.js文件调用，远程js带来的数据是：' + data.result);
+    };
+    </script>
+    <script type="text/javascript" src="http://remoteserver.com/remote.js"></script>
+</head>
+<body>
+ 
+</body>
+</html>
+```
+
+remote.js文件代码如下：
+```
+localHandler({"result":"我是远程js带来的数据"});
+```
+
+运行之后查看结果，页面成功弹出提示窗口，显示本地函数被跨域的远程js调用成功，并且还接收到了远程js带来的数据。很欣喜，跨域远程获取数据的目的基本实现了，但是又一个问题出现了，我怎么让远程js知道它应该调用的本地函数叫什么名字呢？毕竟是jsonp的服务者都要面对很多服务对象，而这些服务对象各自的本地函数都不相同啊？我们接着往下看。
+
+#### 3、聪明的开发者很容易想到，只要服务端提供的js脚本是动态生成的就行了呗，这样调用者可以传一个参数过去告诉服务端“我想要一段调用XXX函数的js代码，请你返回给我”，于是服务器就可以按照客户端的需求来生成js脚本并响应了。
+
+看jsonp.html页面的代码：
+```
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script type="text/javascript">
+    // 得到航班信息查询结果后的回调函数
+    var flightHandler = function(data){
+        alert('你查询的航班结果是：票价 ' + data.price + ' 元，' + '余票 ' + data.tickets + ' 张。');
+    };
+    // 提供jsonp服务的url地址（不管是什么类型的地址，最终生成的返回值都是一段javascript代码）
+    var url = "http://flightQuery.com/jsonp/flightResult.aspx?code=CA1998&callback=flightHandler";
+    // 创建script标签，设置其属性
+    var script = document.createElement('script');
+    script.setAttribute('src', url);
+    // 把script标签加入head，此时调用开始
+    document.getElementsByTagName('head')[0].appendChild(script);
+    </script>
+</head>
+<body>
+ 
+</body>
+</html>
+```
+
+这次的代码变化比较大，不再直接把远程js文件写死，而是编码实现动态查询，而这也正是jsonp客户端实现的核心部分，本例中的重点也就在于如何完成jsonp调用的全过程。
+　　
+我们看到调用的url中传递了一个code参数，告诉服务器我要查的是CA1998次航班的信息，而callback参数则告诉服务器，我的本地回调函数叫做flightHandler，所以请把查询结果传入这个函数中进行调用。
+　　
+OK，服务器很聪明，这个叫做flightResult.aspx的页面生成了一段这样的代码提供给jsonp.html（服务端的实现这里就不演示了，与你选用的语言无关，说到底就是拼接字符串）：
+flightHandler({
+    "code": "CA1998",
+    "price": 1780,
+    "tickets": 5
+});
+　　我们看到，传递给flightHandler函数的是一个json，它描述了航班的基本信息。运行一下页面，成功弹出提示窗口，jsonp的执行全过程顺利完成！
+
+#### 4、jQuery如何实现jsonp调用？
+
+jQuery使用jsonp的代码:
+```
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <html xmlns="http://www.w3.org/1999/xhtml" >
+ <head>
+     <title>Untitled Page</title>
+      <script type="text/javascript" src=jquery.min.js"></script>
+      <script type="text/javascript">
+     jQuery(document).ready(function(){
+        $.ajax({
+             type: "get",
+             async: false,
+             url: "http://flightQuery.com/jsonp/flightResult.aspx?code=CA1998",
+             dataType: "jsonp",
+             jsonp: "callback",//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)
+             jsonpCallback:"flightHandler",//自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名，也可以写"?"，jQuery会自动为你处理数据
+             success: function(json){
+                 alert('您查询到航班信息：票价： ' + json.price + ' 元，余票： ' + json.tickets + ' 张。');
+             },
+             error: function(){
+                 alert('fail');
+             }
+         });
+     });
+     </script>
+     </head>
+  <body>
+  </body>
+ </html>
+ ```
+ 
+jquery在处理jsonp类型的ajax时（虽然jquery也把jsonp归入了ajax，但其实它们真的不是一回事儿），自动帮你生成回调函数并把数据取出来供success属性方法来调用.
+
+## PS
+
+1、ajax和jsonp这两种技术在调用方式上“看起来”很像，目的也一样，都是请求一个url，然后把服务器返回的数据进行处理，因此jquery和ext等框架都把jsonp作为ajax的一种形式进行了封装；
+
+2、但ajax和jsonp其实本质上是不同的东西。ajax的核心是通过XmlHttpRequest获取非本页内容，_而jsonp的核心则是动态添加<script>标签来调用服务器提供的js脚本_。
+　　
+3、所以说，其实ajax与jsonp的区别不在于是否跨域，ajax通过服务端代理一样可以实现跨域，jsonp本身也不排斥同域的数据的获取。
+　　
+4、还有就是，jsonp是一种方式或者说非强制性协议，如同ajax一样，它也不一定非要用json格式来传递数据，如果你愿意，字符串都行，只不过这样不利于用jsonp提供公开服务。
+　　
+总而言之，jsonp不是ajax的一个特例。
