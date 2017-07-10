@@ -1,0 +1,627 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>2.1 JSONP的实现，和JSON的关系 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="ajax.html" />
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <span>
+            
+                    
+                    1. Js基础
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../basic/prototype.html">
+            
+                <a href="../basic/prototype.html">
+            
+                    
+                    1.1 prototype和proto的关系是什么
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../basic/this.html">
+            
+                <a href="../basic/this.html">
+            
+                    
+                    1.2 this关键字
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../basic/scope-chain.html">
+            
+                <a href="../basic/scope-chain.html">
+            
+                    
+                    1.3 作用域链
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" >
+            
+                <span>
+            
+                    
+                    2. CSS基础
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../css/display-float.html">
+            
+                <a href="../css/display-float.html">
+            
+                    
+                    2.1 display:inline-block 和 float 水平排列区别
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" >
+            
+                <span>
+            
+                    
+                    3. 网络相关
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="4.1.1" data-path="jsonp.html">
+            
+                <a href="jsonp.html">
+            
+                    
+                    2.1 JSONP的实现，和JSON的关系
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.2" data-path="ajax.html">
+            
+                <a href="ajax.html">
+            
+                    
+                    2.2 AJAX的实现
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.1.3" data-path="cross-origin.html">
+            
+                <a href="cross-origin.html">
+            
+                    
+                    2.3 跨域问题及其解决
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" >
+            
+                <span>
+            
+                    
+                    4. Js框架相关
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" >
+            
+                <span>
+            
+                    
+                    5. Else
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.1" data-path="../else/nowCoder.html">
+            
+                <a href="../else/nowCoder.html">
+            
+                    
+                    4.1 牛客网Node.js输入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.2" data-path="../else/firstScreen.html">
+            
+                <a href="../else/firstScreen.html">
+            
+                    
+                    4.2 首屏，白屏时间如何计算
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >2.1 JSONP的实现，和JSON的关系</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x5173;&#x4E8E;json&#x548C;jsonp">&#x5173;&#x4E8E;JSON&#x548C;JSONP</h1>
+<p><a href="http://kb.cnblogs.com/page/139725/" target="_blank">&#x53C2;&#x8003;</a></p>
+<p>&#x8BF4;&#x5230;AJAX&#x5C31;&#x4F1A;&#x4E0D;&#x53EF;&#x907F;&#x514D;&#x7684;&#x9762;&#x4E34;&#x4E24;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x7B2C;&#x4E00;&#x4E2A;&#x662F;AJAX&#x4EE5;&#x4F55;&#x79CD;&#x683C;&#x5F0F;&#x6765;&#x4EA4;&#x6362;&#x6570;&#x636E;&#xFF1F;&#x7B2C;&#x4E8C;&#x4E2A;&#x662F;&#x8DE8;&#x57DF;&#x7684;&#x9700;&#x6C42;&#x5982;&#x4F55;&#x89E3;&#x51B3;&#xFF1F;&#x8FD9;&#x4E24;&#x4E2A;&#x95EE;&#x9898;&#x76EE;&#x524D;&#x90FD;&#x6709;&#x4E0D;&#x540C;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF0C;&#x6BD4;&#x5982;&#x6570;&#x636E;&#x53EF;&#x4EE5;&#x7528;&#x81EA;&#x5B9A;&#x4E49;&#x5B57;&#x7B26;&#x4E32;&#x6216;&#x8005;&#x7528;XML&#x6765;&#x63CF;&#x8FF0;&#xFF0C;&#x8DE8;&#x57DF;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x4EE3;&#x7406;&#x6765;&#x89E3;&#x51B3;&#x3002;</p>
+<p>&#x4F46;&#x5230;&#x76EE;&#x524D;&#x4E3A;&#x6B62;&#x6700;&#x88AB;&#x63A8;&#x5D07;&#x6216;&#x8005;&#x8BF4;&#x9996;&#x9009;&#x7684;&#x65B9;&#x6848;&#x8FD8;&#x662F;&#x7528;JSON&#x6765;&#x4F20;&#x6570;&#x636E;&#xFF0C;&#x9760;JSONP&#x6765;&#x8DE8;&#x57DF;&#x3002;</p>
+<p>JSON(JavaScript Object Notation)&#x548C;JSONP(JSON with Padding)&#x867D;&#x7136;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x5B57;&#x6BCD;&#x7684;&#x5DEE;&#x522B;&#xFF0C;&#x4F46;&#x5176;&#x5B9E;&#x4ED6;&#x4EEC;&#x6839;&#x672C;&#x4E0D;&#x662F;&#x4E00;&#x56DE;&#x4E8B;&#x513F;&#xFF1A;JSON&#x662F;&#x4E00;&#x79CD;&#x6570;&#x636E;&#x4EA4;&#x6362;&#x683C;&#x5F0F;&#xFF0C;&#x800C;JSONP&#x662F;&#x4E00;&#x79CD;&#x4F9D;&#x9760;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x7684;&#x806A;&#x660E;&#x624D;&#x667A;&#x521B;&#x9020;&#x51FA;&#x7684;&#x4E00;&#x79CD;&#x975E;&#x5B98;&#x65B9;&#x8DE8;&#x57DF;&#x6570;&#x636E;&#x4EA4;&#x4E92;&#x534F;&#x8BAE;&#x3002;&#x6211;&#x4EEC;&#x62FF;&#x6700;&#x8FD1;&#x6BD4;&#x8F83;&#x706B;&#x7684;&#x8C0D;&#x6218;&#x7247;&#x6765;&#x6253;&#x4E2A;&#x6BD4;&#x65B9;&#xFF0C;JSON&#x662F;&#x5730;&#x4E0B;&#x515A;&#x4EEC;&#x7528;&#x6765;&#x4E66;&#x5199;&#x548C;&#x4EA4;&#x6362;&#x60C5;&#x62A5;&#x7684;&#x201C;&#x6697;&#x53F7;&#x201D;&#xFF0C;&#x800C;JSONP&#x5219;&#x662F;&#x628A;&#x7528;&#x6697;&#x53F7;&#x4E66;&#x5199;&#x7684;&#x60C5;&#x62A5;&#x4F20;&#x9012;&#x7ED9;&#x81EA;&#x5DF1;&#x540C;&#x5FD7;&#x65F6;&#x4F7F;&#x7528;&#x7684;&#x63A5;&#x5934;&#x65B9;&#x5F0F;&#x3002;&#x770B;&#x5230;&#x6CA1;&#xFF1F;&#x4E00;&#x4E2A;&#x662F;&#x63CF;&#x8FF0;&#x4FE1;&#x606F;&#x7684;&#x683C;&#x5F0F;&#xFF0C;&#x4E00;&#x4E2A;&#x662F;&#x4FE1;&#x606F;&#x4F20;&#x9012;&#x53CC;&#x65B9;&#x7EA6;&#x5B9A;&#x7684;&#x65B9;&#x6CD5;&#x3002;</p>
+<h2 id="&#x4EC0;&#x4E48;&#x662F;json">&#x4EC0;&#x4E48;&#x662F;JSON</h2>
+<p>JSON&#x662F;&#x4E00;&#x79CD;&#x57FA;&#x4E8E;&#x6587;&#x672C;&#x7684;&#x6570;&#x636E;&#x4EA4;&#x6362;&#x65B9;&#x5F0F;&#xFF0C;&#x6216;&#x8005;&#x53EB;&#x505A;&#x6570;&#x636E;&#x63CF;&#x8FF0;&#x683C;&#x5F0F;&#xFF0C;&#x4F60;&#x662F;&#x5426;&#x8BE5;&#x9009;&#x7528;&#x4ED6;&#x9996;&#x5148;&#x80AF;&#x5B9A;&#x8981;&#x5173;&#x6CE8;&#x5B83;&#x6240;&#x62E5;&#x6709;&#x7684;&#x4F18;&#x70B9;&#x3002;</p>
+<p>JSON&#x7684;&#x4F18;&#x70B9;&#xFF1A;</p>
+<p>1&#x3001;&#x57FA;&#x4E8E;&#x7EAF;&#x6587;&#x672C;&#xFF0C;&#x8DE8;&#x5E73;&#x53F0;&#x4F20;&#x9012;&#x6781;&#x5176;&#x7B80;&#x5355;&#xFF1B;</p>
+<p>2&#x3001;Javascript&#x539F;&#x751F;&#x652F;&#x6301;&#xFF0C;&#x540E;&#x53F0;&#x8BED;&#x8A00;&#x51E0;&#x4E4E;&#x5168;&#x90E8;&#x652F;&#x6301;&#xFF1B;</p>
+<p>3&#x3001;&#x8F7B;&#x91CF;&#x7EA7;&#x6570;&#x636E;&#x683C;&#x5F0F;&#xFF0C;&#x5360;&#x7528;&#x5B57;&#x7B26;&#x6570;&#x91CF;&#x6781;&#x5C11;&#xFF0C;&#x7279;&#x522B;&#x9002;&#x5408;&#x4E92;&#x8054;&#x7F51;&#x4F20;&#x9012;&#xFF1B;</p>
+<p>4&#x3001;&#x53EF;&#x8BFB;&#x6027;&#x8F83;&#x5F3A;&#xFF0C;&#x867D;&#x7136;&#x6BD4;&#x4E0D;&#x4E0A;XML&#x90A3;&#x4E48;&#x4E00;&#x76EE;&#x4E86;&#x7136;&#xFF0C;&#x4F46;&#x5728;&#x5408;&#x7406;&#x7684;&#x4F9D;&#x6B21;&#x7F29;&#x8FDB;&#x4E4B;&#x540E;&#x8FD8;&#x662F;&#x5F88;&#x5BB9;&#x6613;&#x8BC6;&#x522B;&#x7684;&#xFF1B;</p>
+<p>5&#x3001;&#x5BB9;&#x6613;&#x7F16;&#x5199;&#x548C;&#x89E3;&#x6790;&#xFF0C;&#x5F53;&#x7136;&#x524D;&#x63D0;&#x662F;&#x4F60;&#x8981;&#x77E5;&#x9053;&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF1B;</p>
+<p>JSON&#x7684;&#x7F3A;&#x70B9;&#x5F53;&#x7136;&#x4E5F;&#x6709;&#xFF0C;&#x4F46;&#x5728;&#x4F5C;&#x8005;&#x770B;&#x6765;&#x5B9E;&#x5728;&#x662F;&#x65E0;&#x5173;&#x7D27;&#x8981;&#x7684;&#x4E1C;&#x897F;&#xFF0C;&#x6240;&#x4EE5;&#x4E0D;&#x518D;&#x5355;&#x72EC;&#x8BF4;&#x660E;&#x3002;</p>
+<p>JSON&#x7684;&#x683C;&#x5F0F;&#x6216;&#x8005;&#x53EB;&#x89C4;&#x5219;&#xFF1A;</p>
+<p>JSON&#x80FD;&#x591F;&#x4EE5;&#x975E;&#x5E38;&#x7B80;&#x5355;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x63CF;&#x8FF0;&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF0C;XML&#x80FD;&#x505A;&#x7684;&#x5B83;&#x90FD;&#x80FD;&#x505A;&#xFF0C;&#x56E0;&#x6B64;&#x5728;&#x8DE8;&#x5E73;&#x53F0;&#x65B9;&#x9762;&#x4E24;&#x8005;&#x5B8C;&#x5168;&#x4E0D;&#x5206;&#x4F2F;&#x4EF2;&#x3002;</p>
+<p>1&#x3001;JSON&#x53EA;&#x6709;&#x4E24;&#x79CD;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x63CF;&#x8FF0;&#x7B26;&#xFF0C;&#x5927;&#x62EC;&#x53F7;{}&#x548C;&#x65B9;&#x62EC;&#x53F7;[]&#xFF0C;&#x5176;&#x4F59;&#x82F1;&#x6587;&#x5192;&#x53F7;:&#x662F;&#x6620;&#x5C04;&#x7B26;&#xFF0C;&#x82F1;&#x6587;&#x9017;&#x53F7;,&#x662F;&#x5206;&#x9694;&#x7B26;&#xFF0C;&#x82F1;&#x6587;&#x53CC;&#x5F15;&#x53F7;&quot;&quot;&#x662F;&#x5B9A;&#x4E49;&#x7B26;&#x3002;</p>
+<p>2&#x3001;&#x5927;&#x62EC;&#x53F7;{}&#x7528;&#x6765;&#x63CF;&#x8FF0;&#x4E00;&#x7EC4;&#x201C;&#x4E0D;&#x540C;&#x7C7B;&#x578B;&#x7684;&#x65E0;&#x5E8F;&#x952E;&#x503C;&#x5BF9;&#x96C6;&#x5408;&#x201D;&#xFF08;&#x6BCF;&#x4E2A;&#x952E;&#x503C;&#x5BF9;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A;OOP&#x7684;&#x5C5E;&#x6027;&#x63CF;&#x8FF0;&#xFF09;&#xFF0C;&#x65B9;&#x62EC;&#x53F7;[]&#x7528;&#x6765;&#x63CF;&#x8FF0;&#x4E00;&#x7EC4;&#x201C;&#x76F8;&#x540C;&#x7C7B;&#x578B;&#x7684;&#x6709;&#x5E8F;&#x6570;&#x636E;&#x96C6;&#x5408;&#x201D;&#xFF08;&#x53EF;&#x5BF9;&#x5E94;OOP&#x7684;&#x6570;&#x7EC4;&#xFF09;&#x3002;</p>
+<p>3&#x3001;&#x4E0A;&#x8FF0;&#x4E24;&#x79CD;&#x96C6;&#x5408;&#x4E2D;&#x82E5;&#x6709;&#x591A;&#x4E2A;&#x5B50;&#x9879;&#xFF0C;&#x5219;&#x901A;&#x8FC7;&#x82F1;&#x6587;&#x9017;&#x53F7;,&#x8FDB;&#x884C;&#x5206;&#x9694;&#x3002;</p>
+<p>4&#x3001;&#x952E;&#x503C;&#x5BF9;&#x4EE5;&#x82F1;&#x6587;&#x5192;&#x53F7;:&#x8FDB;&#x884C;&#x5206;&#x9694;&#xFF0C;&#x5E76;&#x4E14;&#x5EFA;&#x8BAE;&#x952E;&#x540D;&#x90FD;&#x52A0;&#x4E0A;&#x82F1;&#x6587;&#x53CC;&#x5F15;&#x53F7;&#x201D;&quot;&#xFF0C;&#x4EE5;&#x4FBF;&#x4E8E;&#x4E0D;&#x540C;&#x8BED;&#x8A00;&#x7684;&#x89E3;&#x6790;&#x3002;</p>
+<p>5&#x3001;JSON&#x5185;&#x90E8;&#x5E38;&#x7528;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x65E0;&#x975E;&#x5C31;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x3001;&#x6570;&#x5B57;&#x3001;&#x5E03;&#x5C14;&#x3001;&#x65E5;&#x671F;&#x3001;null &#x8FD9;&#x4E48;&#x51E0;&#x4E2A;&#xFF0C;&#x5B57;&#x7B26;&#x4E32;&#x5FC5;&#x987B;&#x7528;&#x53CC;&#x5F15;&#x53F7;&#x5F15;&#x8D77;&#x6765;&#xFF0C;&#x5176;&#x4F59;&#x7684;&#x90FD;&#x4E0D;&#x7528;&#xFF0C;&#x65E5;&#x671F;&#x7C7B;&#x578B;&#x6BD4;&#x8F83;&#x7279;&#x6B8A;&#xFF0C;&#x8FD9;&#x91CC;&#x5C31;&#x4E0D;&#x5C55;&#x5F00;&#x8BB2;&#x8FF0;&#x4E86;&#xFF0C;&#x53EA;&#x662F;&#x5EFA;&#x8BAE;&#x5982;&#x679C;&#x5BA2;&#x6237;&#x7AEF;&#x6CA1;&#x6709;&#x6309;&#x65E5;&#x671F;&#x6392;&#x5E8F;&#x529F;&#x80FD;&#x9700;&#x6C42;&#x7684;&#x8BDD;&#xFF0C;&#x90A3;&#x4E48;&#x628A;&#x65E5;&#x671F;&#x65F6;&#x95F4;&#x76F4;&#x63A5;&#x4F5C;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#x4F20;&#x9012;&#x5C31;&#x597D;&#xFF0C;&#x53EF;&#x4EE5;&#x7701;&#x53BB;&#x5F88;&#x591A;&#x9EBB;&#x70E6;&#x3002;</p>
+<h2 id="&#x4EC0;&#x4E48;&#x662F;jsonp">&#x4EC0;&#x4E48;&#x662F;JSONP</h2>
+<p>&#x5148;&#x8BF4;&#x8BF4;JSONP&#x662F;&#x600E;&#x4E48;&#x4EA7;&#x751F;&#x7684;&#xFF1A;</p>
+<p>1&#x3001;&#x4E00;&#x4E2A;&#x4F17;&#x6240;&#x5468;&#x77E5;&#x7684;&#x95EE;&#x9898;&#xFF0C;Ajax&#x76F4;&#x63A5;&#x8BF7;&#x6C42;&#x666E;&#x901A;&#x6587;&#x4EF6;&#x5B58;&#x5728;&#x8DE8;&#x57DF;&#x65E0;&#x6743;&#x9650;&#x8BBF;&#x95EE;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x752D;&#x7BA1;&#x4F60;&#x662F;&#x9759;&#x6001;&#x9875;&#x9762;&#x3001;&#x52A8;&#x6001;&#x7F51;&#x9875;&#x3001;web&#x670D;&#x52A1;&#x3001;WCF&#xFF0C;&#x53EA;&#x8981;&#x662F;&#x8DE8;&#x57DF;&#x8BF7;&#x6C42;&#xFF0C;&#x4E00;&#x5F8B;&#x4E0D;&#x51C6;&#xFF1B;</p>
+<p>2&#x3001;&#x4E0D;&#x8FC7;&#x6211;&#x4EEC;&#x53C8;&#x53D1;&#x73B0;&#xFF0C;Web&#x9875;&#x9762;&#x4E0A;&#x8C03;&#x7528;js&#x6587;&#x4EF6;&#x65F6;&#x5219;&#x4E0D;&#x53D7;&#x662F;&#x5426;&#x8DE8;&#x57DF;&#x7684;&#x5F71;&#x54CD;&#xFF08;&#x4E0D;&#x4EC5;&#x5982;&#x6B64;&#xFF0C;&#x6211;&#x4EEC;&#x8FD8;&#x53D1;&#x73B0;&#x51E1;&#x662F;&#x62E5;&#x6709;&#x201D;src&#x201D;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x7684;&#x6807;&#x7B7E;&#x90FD;&#x62E5;&#x6709;&#x8DE8;&#x57DF;&#x7684;&#x80FD;&#x529B;&#xFF0C;&#x6BD4;&#x5982;<script>、<img>、<iframe>）；</p>
+<p>3、于是可以判断，当前阶段如果想通过纯web端（ActiveX控件、服务端代理、属于未来的HTML5之Websocket等方式不算）跨域访问数据就只有一种可能，那就是在远程服务器上设法把数据装进js格式的文件里，供客户端调用和进一步处理；</p>
+<p>4、恰巧我们已经知道有一种叫做JSON的纯字符数据格式可以简洁的描述复杂数据，更妙的是JSON还被js原生支持，所以在客户端几乎可以随心所欲的处理这种格式的数据；</p>
+<p>5、这样子解决方案就呼之欲出了，web客户端通过与调用脚本一模一样的方式，来调用跨域服务器上动态生成的js格式文件（一般以JSON为后缀），显而易见，服务器之所以要动态生成JSON文件，目的就在于把客户端需要的数据装入进去。</p>
+<p>6、客户端在对JSON文件调用成功之后，也就获得了自己所需的数据，剩下的就是按照自己需求进行处理和展现了，这种获取远程数据的方式看起来非常像AJAX，但其实并不一样。</p>
+<p>7、为了便于客户端使用数据，逐渐形成了一种非正式传输协议，人们把它称作JSONP，该协议的一个要点就是允许用户传递一个callback参数给服务端，然后服务端返回数据时会将这个callback参数作为函数名来包裹住JSON数据，这样客户端就可以随意定制自己的函数来自动处理返回数据了。</p>
+<h2>JSONP的客户端具体实现：</h2>
+<p>不管jQuery也好，ExtJs也罢，又或者是其他支持jsonp的框架，他们幕后所做的工作都是一样的，下面我来循序渐进的说明一下jsonp在客户端的实现：</p>
+<h4>1、我们知道，哪怕跨域js文件中的代码（当然指符合web脚本安全策略的），web页面也是可以无条件执行的。</h4>
+<p>远程服务器remoteserver.com根目录下有个remote.js文件代码如下：</p>
+<pre><code>alert(&#39;我是远程文件&#39;);
+</code></pre><p>本地服务器localserver.com下有个jsonp.html页面代码如下：</p>
+<pre><code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+&lt;head&gt;
+    &lt;title&gt;&lt;/title&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;http://remoteserver.com/remote.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>毫无疑问，页面将会弹出一个提示窗体，显示跨域调用成功。</p>
+<h4>2、现在我们在jsonp.html页面定义一个函数，然后在远程remote.js中传入数据进行调用。</h4>
+<p>jsonp.html页面代码如下：</p>
+<pre><code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+&lt;head&gt;
+    &lt;title&gt;&lt;/title&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+    var localHandler = function(data){
+        alert(&#39;我是本地函数，可以被跨域的remote.js文件调用，远程js带来的数据是：&#39; + data.result);
+    };
+    &lt;/script&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;http://remoteserver.com/remote.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>remote.js文件代码如下：</p>
+<pre><code>localHandler({&quot;result&quot;:&quot;我是远程js带来的数据&quot;});
+</code></pre><p>运行之后查看结果，页面成功弹出提示窗口，显示本地函数被跨域的远程js调用成功，并且还接收到了远程js带来的数据。很欣喜，跨域远程获取数据的目的基本实现了，但是又一个问题出现了，我怎么让远程js知道它应该调用的本地函数叫什么名字呢？毕竟是jsonp的服务者都要面对很多服务对象，而这些服务对象各自的本地函数都不相同啊？我们接着往下看。</p>
+<h4>3、聪明的开发者很容易想到，只要服务端提供的js脚本是动态生成的就行了呗，这样调用者可以传一个参数过去告诉服务端“我想要一段调用XXX函数的js代码，请你返回给我”，于是服务器就可以按照客户端的需求来生成js脚本并响应了。</h4>
+<p>看jsonp.html页面的代码：</p>
+<pre><code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+&lt;head&gt;
+    &lt;title&gt;&lt;/title&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+    // 得到航班信息查询结果后的回调函数
+    var flightHandler = function(data){
+        alert(&#39;你查询的航班结果是：票价 &#39; + data.price + &#39; 元，&#39; + &#39;余票 &#39; + data.tickets + &#39; 张。&#39;);
+    };
+    // 提供jsonp服务的url地址（不管是什么类型的地址，最终生成的返回值都是一段javascript代码）
+    var url = &quot;http://flightQuery.com/jsonp/flightResult.aspx?code=CA1998&amp;callback=flightHandler&quot;;
+    // 创建script标签，设置其属性
+    var script = document.createElement(&#39;script&#39;);
+    script.setAttribute(&#39;src&#39;, url);
+    // 把script标签加入head，此时调用开始
+    document.getElementsByTagName(&#39;head&#39;)[0].appendChild(script);
+    &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>这次的代码变化比较大，不再直接把远程js文件写死，而是编码实现动态查询，而这也正是jsonp客户端实现的核心部分，本例中的重点也就在于如何完成jsonp调用的全过程。
+　　
+我们看到调用的url中传递了一个code参数，告诉服务器我要查的是CA1998次航班的信息，而callback参数则告诉服务器，我的本地回调函数叫做flightHandler，所以请把查询结果传入这个函数中进行调用。
+　　
+OK，服务器很聪明，这个叫做flightResult.aspx的页面生成了一段这样的代码提供给jsonp.html（服务端的实现这里就不演示了，与你选用的语言无关，说到底就是拼接字符串）：
+flightHandler({
+    &quot;code&quot;: &quot;CA1998&quot;,
+    &quot;price&quot;: 1780,
+    &quot;tickets&quot;: 5
+});
+　　我们看到，传递给flightHandler函数的是一个json，它描述了航班的基本信息。运行一下页面，成功弹出提示窗口，jsonp的执行全过程顺利完成！</p>
+<h4>4、后台jsonp请求响应的实现</h4>
+<p>这是express4.12.3关于jsonp的实现代码:</p>
+<pre><code>  // jsonp
+  if (typeof callback === &#39;string&#39; &amp;&amp; callback.length !== 0) {
+    this.charset = &#39;utf-8&#39;;
+    this.set(&#39;X-Content-Type-Options&#39;, &#39;nosniff&#39;);
+    this.set(&#39;Content-Type&#39;, &#39;text/javascript&#39;);
+
+    // restrict callback charset
+    callback = callback.replace(/[^\[\]\w$.]/g, &#39;&#39;);
+
+    // replace chars not allowed in JavaScript that are in JSON
+    body = body
+      .replace(/\u2028/g, &#39;\\u2028&#39;)
+      .replace(/\u2029/g, &#39;\\u2029&#39;);
+
+    // the /**/ is a specific security mitigation for &quot;Rosetta Flash JSONP abuse&quot;
+    // the typeof check is just to reduce client error noise
+    body = &#39;/**/ typeof &#39; + callback + &#39; === \&#39;function\&#39; &amp;&amp; &#39; + callback + &#39;(&#39; + body + &#39;);&#39;;
+  }
+</code></pre><h4>5、jQuery如何实现jsonp调用？</h4>
+<p>jQuery使用jsonp的代码:</p>
+<pre><code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
+ &lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; &gt;
+ &lt;head&gt;
+     &lt;title&gt;Untitled Page&lt;/title&gt;
+      &lt;script type=&quot;text/javascript&quot; src=jquery.min.js&quot;&gt;&lt;/script&gt;
+      &lt;script type=&quot;text/javascript&quot;&gt;
+     jQuery(document).ready(function(){
+        $.ajax({
+             type: &quot;get&quot;,
+             async: false,
+             url: &quot;http://flightQuery.com/jsonp/flightResult.aspx?code=CA1998&quot;,
+             dataType: &quot;jsonp&quot;,
+             jsonp: &quot;callback&quot;,//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)
+             jsonpCallback:&quot;flightHandler&quot;,//自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名，也可以写&quot;?&quot;，jQuery会自动为你处理数据
+             success: function(json){
+                 alert(&#39;您查询到航班信息：票价： &#39; + json.price + &#39; 元，余票： &#39; + json.tickets + &#39; 张。&#39;);
+             },
+             error: function(){
+                 alert(&#39;fail&#39;);
+             }
+         });
+     });
+     &lt;/script&gt;
+     &lt;/head&gt;
+  &lt;body&gt;
+  &lt;/body&gt;
+ &lt;/html&gt;
+</code></pre><p>jquery在处理jsonp类型的ajax时（虽然jquery也把jsonp归入了ajax，但其实它们真的不是一回事儿），自动帮你生成回调函数并把数据取出来供success属性方法来调用.</p>
+<h2>PS</h2>
+<p>1、ajax和jsonp这两种技术在调用方式上“看起来”很像，目的也一样，都是请求一个url，然后把服务器返回的数据进行处理，因此jquery和ext等框架都把jsonp作为ajax的一种形式进行了封装；</p>
+<p>2、但ajax和jsonp其实本质上是不同的东西。ajax的核心是通过XmlHttpRequest获取非本页内容，<em>而jsonp的核心则是动态添加<script>标签来调用服务器提供的js脚本</em>。</p>
+<p>3、所以说，其实ajax与jsonp的区别不在于是否跨域，ajax通过服务端代理一样可以实现跨域，jsonp本身也不排斥同域的数据的获取。</p>
+<p>4、还有就是，jsonp是一种方式或者说非强制性协议，如同ajax一样，它也不一定非要用json格式来传递数据，如果你愿意，字符串都行，只不过这样不利于用jsonp提供公开服务。
+　　
+总而言之，jsonp不是ajax的一个特例。</p>
+</script></p>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+                <a href="ajax.html" class="navigation navigation-next navigation-unique" aria-label="Next page: 2.2 AJAX的实现">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"2.1 JSONP的实现，和JSON的关系","level":"4.1.1","depth":2,"next":{"title":"2.2 AJAX的实现","level":"4.1.2","depth":2,"path":"network/ajax.md","ref":"network/ajax.md","articles":[]},"previous":{"title":"3. 网络相关","level":"4.1","depth":1,"ref":"","articles":[{"title":"2.1 JSONP的实现，和JSON的关系","level":"4.1.1","depth":2,"path":"network/jsonp.md","ref":"network/jsonp.md","articles":[]},{"title":"2.2 AJAX的实现","level":"4.1.2","depth":2,"path":"network/ajax.md","ref":"network/ajax.md","articles":[]},{"title":"2.3 跨域问题及其解决","level":"4.1.3","depth":2,"path":"network/cross-origin.md","ref":"network/cross-origin.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"network/jsonp.md","mtime":"2017-07-10T01:28:21.795Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-07-10T01:29:40.978Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
