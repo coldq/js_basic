@@ -21,7 +21,27 @@ test('object assignment', () => {
 ```
 
 - toBeNull(),测试是否为null
+
 - toBeUndefined()，测试是否undefined
+
 - toBeDefined (), toBeUndefined的相反操作
+
 - toBeTruthy()，判断是否为true
+
 - toBeFalsy(),是否false
+
+- toMatch()，支持正则，可用于字符串检验
+```
+test('string test', () => {
+  expect('test').not.toMatch('test);
+});
+
+
+test('there is no I in team', () => {
+  expect('team').not.toMatch(/I/);
+});
+
+test('but there is a "stop" in Christoph', () => {
+  expect('Christoph').toMatch(/stop/);
+});
+```
