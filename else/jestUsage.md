@@ -57,3 +57,32 @@ test('the flavor list contains lime', () => {
 ```
 
 ### 2. 异步的检验
+
+#### 不能用回调函数
+
+下面代码，一旦fetchData完成，测试将在调用回调之前完成。
+```
+
+// Don't do this!
+test('the data is peanut butter', () => {
+  function callback(data) {
+    expect(data).toBe('peanut butter');
+  }
+
+  fetchData(callback);
+});
+```
+有一种替代形式的测试来解决这个问题。不要将测试置于带有空参数的函数中，而是使用一个名为done的参数。 Jest将在完成测试之前等待完成回调。
+```
+test('the data is peanut butter', done => {
+  function callback(data) {
+    expect(data).toBe('peanut butter');
+    done();
+  }
+
+  fetchData(callback);
+});
+```
+
+#### Promise 
+
