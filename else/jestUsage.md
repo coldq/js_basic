@@ -98,3 +98,26 @@ test('the data is peanut butter', () => {
 
 ```
 确保返回承诺,如果省略此return语句，则在fetchData完成之前，测试就完成。
+
+如果想要reject使用.catch方法。确保添加expect.assertions以验证是否调用了一定数量的断言。否则履行承诺不会失败。
+```
+test('the fetch fails with an error', () => {
+  expect.assertions(1);
+  return fetchData().catch(e =>
+    expect(e).toMatch('error')
+  );
+});
+```
+
+#### .resolves / .rejects 
+
+available in Jest 20.0.0+ 
+
+可以使用.resolves匹配器，Jest会等待promise的resolve，如果reject则测试失败。
+```
+test('the data is peanut butter', () => {
+  expect.assertions(1);
+  return expect(fetchData()).resolves.toBe('peanut butter');
+});
+```
+
