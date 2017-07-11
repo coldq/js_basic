@@ -30,7 +30,7 @@ test('object assignment', () => {
 
 - toBeFalsy(),是否false
 
-- toMatch()，支持正则，可用于字符串检验
+- toMatch()，检查字符串是否与正则表达式匹配。
 
 ```
 test('string test', () => {
