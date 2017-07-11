@@ -31,6 +31,7 @@ test('object assignment', () => {
 - toBeFalsy(),是否false
 
 - toMatch()，支持正则，可用于字符串检验
+
 ```
 test('string test', () => {
   expect('test').not.toMatch('test);
@@ -43,5 +44,14 @@ test('there is no I in team', () => {
 
 test('but there is a "stop" in Christoph', () => {
   expect('Christoph').toMatch(/stop/);
+});
+```
+
+- toContain(item) 检查项目是否在列表中时，使用===，严格的等式检查。
+
+```
+//getAllFlavors() returns a list of flavors
+test('the flavor list contains lime', () => {
+  expect(getAllFlavors()).toContain('lime');
 });
 ```
