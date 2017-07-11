@@ -55,3 +55,5 @@ test('the flavor list contains lime', () => {
   expect(getAllFlavors()).toContain('lime');
 });
 ```
+
+### 2. 异步的检验
