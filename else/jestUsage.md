@@ -84,5 +84,17 @@ test('the data is peanut butter', done => {
 });
 ```
 
-#### Promise 
+#### Promises
 
+如果使用了Promises，Jest会等待promise的resolve，如果rejected，测试自动失败。
+
+```
+test('the data is peanut butter', () => {
+  expect.assertions(1);
+  return fetchData().then(data => {
+    expect(data).toBe('peanut butter');
+  });
+});
+
+```
+确保返回承诺,如果省略此return语句，则在fetchData完成之前，测试就完成。
