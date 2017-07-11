@@ -123,5 +123,11 @@ test('the data is peanut butter', () => {
 ```
 确保返回承诺,如果省略此return语句，则在fetchData完成之前，测试就完成。
 
-
+reject同理：
+```
+test('the fetch fails with an error', () => {
+  expect.assertions(1);
+  return expect(fetchData()).rejects.toMatch('error');
+});
+```
 
