@@ -114,6 +114,7 @@ test('the fetch fails with an error', () => {
 available in Jest 20.0.0+ 
 
 可以使用.resolves匹配器，Jest会等待promise的resolve，如果reject则测试失败。
+
 ```
 test('the data is peanut butter', () => {
   expect.assertions(1);
