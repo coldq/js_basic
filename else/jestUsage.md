@@ -130,4 +130,23 @@ test('the fetch fails with an error', () => {
   return expect(fetchData()).rejects.toMatch('error');
 });
 ```
+#### async/await
 
+也可以用Async、await来进行测试：
+
+```
+test('the data is peanut butter', async () => {
+  expect.assertions(1);
+  const data = await fetchData();
+  expect(data).toBe('peanut butter');
+});
+
+test('the fetch fails with an error', async () => {
+  expect.assertions(1);
+  try {
+    await fetchData();
+  } catch (e) {
+    expect(e).toMatch('error');
+  }
+});
+```
