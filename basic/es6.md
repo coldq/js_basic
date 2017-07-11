@@ -22,3 +22,12 @@ let otherSeasons, autumn;
 [autumn, ...otherSeasons] = cold;
 otherSeasons      // => ['winter']
 ```
+
+#### 模板字符串
+
+ES6引入了一种新型的字符串字面量语法，我们称之为模板字符串（template strings）。除了使用反撇号字符 ` 代替普通字符串的引号 ' 或 " 外，它们看起来与普通字符串并无二致。在最简单的情况下，它们与普通字符串的表现一致：
+
+```
+let str = `Ceci n'est pas une chaîne.`;
+typeof str //"string"
+```
