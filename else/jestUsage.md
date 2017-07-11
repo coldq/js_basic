@@ -121,4 +121,7 @@ test('the data is peanut butter', () => {
   return expect(fetchData()).resolves.toBe('peanut butter');
 });
 ```
+确保返回承诺,如果省略此return语句，则在fetchData完成之前，测试就完成。
+
+
 
