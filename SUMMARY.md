@@ -11,7 +11,7 @@
   * [2.1 display:inline-block 和 float ](css/display-float.md)
 * [3. Html 相关]()
   * [ 3.1 Dom 节点类型](html/dom-nodetype.md)
-  * [ 3.1 BOM 是什么](html/dom-nodetype.md)
+  * [ 3.1 BOM 是什么](html/BOM.md)
 * [4. 网络相关]()
   * [4.1 JSONP的实现，和JSON的关系](network/jsonp.md)
   * [4.2 AJAX的实现](network/ajax.md)
