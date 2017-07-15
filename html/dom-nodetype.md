@@ -63,6 +63,21 @@ console.log(Node.ATTRIBUTE_NODE === 2);//true
 </script>
 ```
 
+attribute是一个特性节点，每个DOM元素都有一个对应的attributes属性来存放所有的attribute节点，attributes是一个类数组的容器，说得准确点就是NameNodeMap，总之就是一个类似数组但又和数组不太一样的容器。attributes的每个数字索引以名值对(name=”value”)的形式存放了一个attribute节点。
+
+```
+<div class="box" id="box" gameid="880">hello</div>
+
+//上面的div元素的HTML代码中有class、id还有自定义的gameid，这些特性都存放在attributes中，类似下面的形式：
+
+[ class="box", id="box", gameid="880" ]
+
+//可以这样来访问attribute节点：
+var elem = document.getElementById( 'box' );
+console.log( elem.attributes[0].name ); // class
+console.log( elem.attributes[0].value ); // box
+```
+
 ##### 3.文本节点
 
 文本节点text代表网页中的HTML标签内容。文本节点的节点类型nodeType值是3，节点名称nodeName值是'#text'，nodeValue值是标签内容值
