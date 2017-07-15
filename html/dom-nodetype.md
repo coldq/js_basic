@@ -34,6 +34,11 @@ DOM定义了一个Node接口，这个接口在javascript中是作为Node类型�
 //在标准浏览器下返回1，而在IE8-浏览器中报错，提示Node未定义
 console.log(Node.ELEMENT_NODE);//1
 ```
+
+#### 各种节点详细
+
+
+
 #### 节点关系
 
 ![](/image/3-1-1.jpg)
