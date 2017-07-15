@@ -37,7 +37,141 @@ console.log(Node.ELEMENT_NODE);//1
 
 #### 各种节点详细
 
+##### 1.元素节点
 
+元素节点element对应网页的HTML标签元素。元素节点的节点类型nodeType值是1，节点名称nodeName值是大写的标签名，nodeValue值是null
+
+以body元素为例
+```
+// 1 'BODY' null
+console.log(document.body.nodeType,document.body.nodeName,document.body.nodeValue)
+console.log(Node.ELEMENT_NODE === 1);//true
+ ```
+ 
+##### 2.特性节点
+
+元素特性节点attribute对应网页中HTML标签的属性，它只存在于元素的attributes属性中，并不是DOM文档树的一部分。特性节点的节点类型nodeType值是2，节点名称nodeName值是属性名，nodeValue值是属性值
+现在，div元素有id="test"的属性
+
+```
+<div id="test"></div>
+<script>
+var attr = test.attributes.id;
+//2 'id' 'test'
+console.log(attr.nodeType,attr.nodeName,attr.nodeValue)
+console.log(Node.ATTRIBUTE_NODE === 2);//true 
+</script>
+```
+
+##### 3.文本节点
+
+文本节点text代表网页中的HTML标签内容。文本节点的节点类型nodeType值是3，节点名称nodeName值是'#text'，nodeValue值是标签内容值
+
+现在，div元素内容为'测试'
+
+```
+<div id="test">测试</div>
+<script>
+var txt = test.firstChild;
+//3 '#text' '测试'
+console.log(txt.nodeType,txt.nodeName,txt.nodeValue)
+console.log(Node.TEXT_NODE === 3);//true 
+</script>
+ ```
+ 
+##### 4.CDATA节点
+CDATASection类型只针对基于XML的文档，只出现在XML文档中，表示的是CDATA区域，格式一般为
+```
+<![CDATA[
+]]>
+```
+
+该类型节点的节点类型nodeType的值为4，节点名称nodeName的值为'#cdata-section'，nodevalue的值是CDATA区域中的内容 
+
+##### 5.实体引用名称节点
+
+实体是一个声明，指定了在XML中取代内容或标记而使用的名称。 实体包含两个部分， 首先，必须使用实体声明将名称绑定到替换内容。 实体声明是使用 <!ENTITY name "value"> 语法在文档类型定义(DTD)或XML架构中创建的。其次，在实体声明中定义的名称随后将在 XML 中使用。 在XML中使用时，该名称称为实体引用。
+实体引用名称节点entry_reference的节点类型nodeType的值为5，节点名称nodeName的值为实体引用的名称，nodeValue的值为null
+
+```
+//实体名称
+<!ENTITY publisher "Microsoft Press">
+//实体名称引用
+<pubinfo>Published by &publisher;</pubinfo>
+```
+
+##### 6.实体名称节点
+
+上面已经详细解释过，就不再赘述
+该节点的节点类型nodeType的值为6，节点名称nodeName的值为实体名称，nodeValue的值为null
+
+##### 7.处理指令节点
+
+处理指令节点ProcessingInstruction的节点类型nodeType的值为7，节点名称nodeName的值为target，nodeValue的值为entire content excluding the target
+
+##### 8.注释节点
+注释节点comment表示网页中的HTML注释。注释节点的节点类型nodeType的值为8，节点名称nodeName的值为'#comment'，nodeValue的值为注释的内容
+
+现在，在id为myDiv的div元素中存在一个<!-- 我是注释内容 -->
+```
+<div id="myDiv"><!-- 我是注释内容 --></div>
+<script>
+var com = myDiv.firstChild;
+//8 '#comment' '我是注释内容'
+console.log(com.nodeType,com.nodeName,com.nodeValue)
+console.log(Node.COMMENT_NODE === 8);//true 
+</script>
+```
+
+##### 9.文档节点
+文档节点document表示HTML文档，也称为根节点，指向document对象。文档节点的节点类型nodeType的值为9，节点名称nodeName的值为'#document'，nodeValue的值为null
+
+```
+<script>
+//9 "#document" null
+console.log(document.nodeType,document.nodeName,document.nodeValue)
+console.log(Node.DOCUMENT_NODE === 9);//true 
+</script>
+ ```
+ 
+##### 10.文档类型节点
+
+文档类型节点DocumentType包含着与文档的doctype有关的所有信息。文档类型节点的节点类型nodeType的值为10，节点名称nodeName的值为doctype的名称，nodeValue的值为null
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+</head>
+<body>
+<script>
+var nodeDocumentType = document.firstChild;
+//10 "html" null
+console.log(nodeDocumentType.nodeType,nodeDocumentType.nodeName,nodeDocumentType.nodeValue);
+console.log(Node.DOCUMENT_TYPE_NODE === 10);
+</script>
+</body>
+</html>
+```
+
+##### 11.文档片段节点
+
+文档片段节点DocumentFragment在文档中没有对应的标记，是一种轻量级的文档，可以包含和控制节点，但不会像完整的文档寻亲战胜额外的资源。该节点的节点类型nodeType的值为11，节点名称nodeName的值为'#document-fragment'，nodeValue的值为null
+
+```
+<script>
+var nodeDocumentFragment = document.createDocumentFragment(); 
+//11 "#document-fragment" null
+console.log(nodeDocumentFragment.nodeType,nodeDocumentFragment.nodeName,nodeDocumentFragment.nodeValue);
+console.log(Node.DOCUMENT_FRAGMENT_NODE === 11);//true
+</script>
+```
+
+##### 12.DTD声明节点
+
+DTD声明节点notation代表DTD中声明的符号。该节点的节点类型nodeType的值为12，节点名称nodeName的值为符号名称，nodeValue的值为null 
 
 #### 节点关系
 
