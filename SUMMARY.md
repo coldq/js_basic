@@ -9,7 +9,7 @@
   * [1.5 ES6相关](basic/es6.md)
 * [2. CSS 基础]()
   * [2.1 display:inline-block 和 float ](css/display-float.md)
-  * [2.2 屏幕自适应 ](css/screen-adaption.md)
+  * [2.2 屏幕自适应 ](css/screen-adaptation.md)
 * [3. Html 相关]()
   * [ 3.1 Dom 节点类型](html/dom-nodetype.md)
   * [ 3.2 BOM 是什么](html/BOM.md)
