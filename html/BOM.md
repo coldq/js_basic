@@ -30,3 +30,9 @@ Document根节点包含子节点：forms、location、anchors、images、links
 从window.document已然可以看出，DOM的最根本的对象是BOM的window对象的子对象。
 
 区别：DOM描述了处理网页内容的方法和接口，BOM描述了与浏览器进行交互的方法和接口。
+
+![](/image/3-2-1.gif)
+
+![](/image/3-2-2.jpg)
+
+![](/image/3-2-3.gif)
