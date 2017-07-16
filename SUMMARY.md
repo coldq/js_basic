@@ -15,6 +15,7 @@
   * [ 3.2 BOM 是什么](html/BOM.md)
   * [ 3.3 事件和冒泡](html/event-bubble.md)
   * [ 3.4 Doctype](html/Doctype.md)
+  * [ 3.5 前端优化](html/web-optimization.md)
 * [4. 网络相关]()
   * [4.1 JSONP的实现，和JSON的关系](network/jsonp.md)
   * [4.2 AJAX的实现](network/ajax.md)
