@@ -7,6 +7,10 @@
   * [1.3 作用域链](basic/scope-chain.md)  
   * [1.4 变量提升](basic/scope-up.md)  
   * [1.5 ES6相关](basic/es6.md)
+  * [1.6 Call](basic/call.md)
+  * [1.5 apply](basic/apply.md)
+  * [1.5 bind](basic/bind.md)
+
 * [2. CSS 基础]()
   * [2.1 display:inline-block 和 float ](css/display-float.md)
   * [2.2 屏幕自适应 ](css/screen-adaptation.md)
