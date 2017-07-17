@@ -42,6 +42,7 @@ console.log(ary instanceof Array)//true;
 从输出的效果来看，还是挺令人满意的，能准确的检测出数据类型是否是数组，不要高兴的太早，大家先想想这个的缺点
 
 #### 原型链方法
+
 ```
 var ary = [1,23,4];
 console.log(ary.__proto__.constructor==Array);//true
