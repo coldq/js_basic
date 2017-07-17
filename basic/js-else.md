@@ -90,8 +90,18 @@ Foo.prototype.a = 1;
 
 var foo = new Foo();
 foo.b = 2;
+
 Object.keys(foo);//["b"]
+
 for(var i in foo){console.log(i)}; //b a
+
+//不过可以用hasOwnProperty()判断是否是自身的属性
+
+for(var i in foo){
+    console.log(i,foo.hasOwnProperty(i));
+}; 
+// b true
+// a false
 ```
 
 其它方法：
