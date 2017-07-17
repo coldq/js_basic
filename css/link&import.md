@@ -45,6 +45,12 @@
 
 这是最常见的也是最推荐的引入 CSS 的方式。使用这种方式，所有的 CSS 代码只存在于单独的 CSS 文件中，所以具有良好的可维护性。并且所有的 CSS 代码只存在于 CSS 文件中，CSS 文件会在第一次加载时引入，以后切换页面时只需加载 HTML 文件即可。
 
+另外link还有其他的一些用途，比如引入图标
+
+```
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+```
+
 ### 导入方式
 
 导入方式指的是使用 CSS 规则引入外部 CSS 文件。
