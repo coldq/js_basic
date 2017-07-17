@@ -2,6 +2,12 @@
 
 bind()方法创建一个新的函数, 当被调用时，将其this关键字设置为提供的值，在调用新函数时，在任何提供之前提供一个给定的参数序列。
 
+bind和call、apply的使用区别：
+- 都是用来改变函数的this对象的指向的；
+- 第一个参数都是this要指向的对象；
+- 都可以利用后续参数传参；
+- bind是返回对应函数，便于稍后调用；apply、call是立即调用。
+
 ### 语法
   fun.bind(thisArg[, arg1[, arg2[, ...]]])
 #### 参数
@@ -156,7 +162,15 @@ var slice = Function.prototype.call.bind(unboundSlice);
 // ...
 
 slice(arguments);
+// ==  Function.prototype.call(unboundSlice,arguments) ===>
+// [[Call]](unbundSlice,arguments)
+
+var str = Function.prototype.call.bind(Object.prototype.toString);
+str([]) //'[object Array]'
 ```
+
+[再次认识Function.prototype.call](http://www.cnblogs.com/fsjohnhuang/p/4160942.html)
+
 
 #### Polyfill（兼容旧浏览器）
 
