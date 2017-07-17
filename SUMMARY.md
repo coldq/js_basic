@@ -17,6 +17,7 @@
   * [ 3.4 Doctype](html/Doctype.md)
   * [ 3.5 前端优化](html/web-optimization.md)
   * [ 3.6 网页布局方式](html/layout.md)
+  * [ 3.6 响应式设计-概念&应用](html/RWD-concept.md)
 * [4. 网络相关]()
   * [4.1 JSONP的实现，和JSON的关系](network/jsonp.md)
   * [4.2 AJAX的实现](network/ajax.md)
