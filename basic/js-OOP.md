@@ -220,10 +220,10 @@ function Student(firstName, subject) {
 // 不能赋予Person类任何的FirstName参数
 // 调用Person的正确位置如下，我们从Student中来调用它
 
-Student.prototype = Object.create(Person.prototype); // See note below  ,继承父类的函数
+Student.prototype = Object.create(Person.prototype); // See note below  ,**继承父类的函数**
 
 // 设置"constructor" 属性指向Student
-Student.prototype.constructor = Student; //确保构造器正确，设置prototype时会改变cunstructor为父类
+Student.prototype.constructor = Student; //**确保构造器正确，设置prototype时会改变cunstructor为父类**
 
 // 更换"sayHello" 方法
 Student.prototype.sayHello = function(){
