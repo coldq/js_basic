@@ -35,6 +35,7 @@
   * [4.3 跨域问题及其解决](network/cross-origin.md)
   * [4.4 http状态码](network/http-code.md)
   * [4.5 缓存机制](network/cache.md)
+  * [4.5 网络分层](network/net-level.md)
 * [5. Js框架相关]()
   * [5.1 React的diff算法](frame/React-diff.md)
   * [5.2 React的props和state](frame/React-diff.md)
