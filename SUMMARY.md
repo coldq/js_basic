@@ -40,7 +40,7 @@
   * [5.2 React的props和state](frame/React-diff.md)
   * [5.3 React对比Vue](frame/react-vue.md)
   * [5.4 React对比angularJs](frame/react-angular.md)
-  * [5.5 React的pureComponent](frame/react-pureComponent.md)
+  * [5.5 React的pureComponent](frame/react-purecomponent.md)
 * [6. Else]()
   * [6.1 牛客网Node.js输入](else/nowCoder.md)
   * [6.2 首屏，白屏时间如何计算](else/firstScreen.md)
