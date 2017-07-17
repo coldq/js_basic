@@ -208,7 +208,7 @@ Person.prototype.sayHello = function(){
 // 定义Student构造器
 function Student(firstName, subject) {
   // 调用父类构造器, 确保(使用Function#call)"this" 在调用过程中设置正确
-  Person.call(this, firstName);
+  Person.call(this, firstName);  //继承父类的属性
 
   // 初始化Student类特有属性
   this.subject = subject;
@@ -219,10 +219,11 @@ function Student(firstName, subject) {
 // 这样做的错误之处有很多, 最重要的一点是我们在实例化时
 // 不能赋予Person类任何的FirstName参数
 // 调用Person的正确位置如下，我们从Student中来调用它
-Student.prototype = Object.create(Person.prototype); // See note below
+
+Student.prototype = Object.create(Person.prototype); // See note below  ,继承父类的函数
 
 // 设置"constructor" 属性指向Student
-Student.prototype.constructor = Student;
+Student.prototype.constructor = Student; //设置构造器
 
 // 更换"sayHello" 方法
 Student.prototype.sayHello = function(){
