@@ -77,6 +77,7 @@ Object.getOwnPropertyNames(obj)或Object.keys(obj)返回一个数组，该数组
 Object.getOwnPropertyNames(obj).length === 0 
 Object.keys(obj).length === 0
 ```
+
 注意用`for i in obj `会返回原型链上的属性
 
 ```
@@ -88,6 +89,11 @@ var foo = new Foo();
 foo.b = 2;
 Object.keys(foo);//["b"]
 for(var i in foo){console.log(i)}; //b a
+```
+
+其它方法：
+```
+JSON.stringify(obj) === '{}'
 ```
 
 ### ~~ |0
