@@ -286,5 +286,76 @@ function () {
   let a = 1;
 }
 ```
+#### import
+
+ES6采用import来代替node等的require来导入模块。
+
+`import {$} from './jquery.js'`
+$对象就是jquery中export暴露的对象。
+
+import命令接受一个对象（用大括号表示），里面指定要从其他模块导入的变量名。注意：大括号里面的变量名，必须与被导入模块对外接口的名称相同。
+
+如果想为输入的变量重新取一个名字，import命令要使用as关键字，将输入的变量重命名。
+
+`import { New as $ } from './jquery.js';`
+**注意，import命令具有提升效果，会提升到整个模块的头部，首先执行。**
+
+#### class
+
+ES6引入了类的概念，有了class这个关键字，当然，类只是基于原型的面向对象模式的语法糖，为了方便理解和开发而已，类的实质还是函数对象，类中的方法和对象其实都是挂在对应的函数对象的prototype属性下。
+
+我们定义一个类：
+
+```
+//定义类
+class Person {
+  constructor(name, age) {
+        this.name = name;
+        this.age = age;
+  }    
+  setSex(_sex) {
+        this.sex=_sex;
+  }
+}
+```
+
+constructor方法，就是构造方法，也就是ES5时代函数对象的主体，而this关键字则代表实例对象，将上述类改写成ES5格式就是：
+```
+function Person(name, age){
+          this.name = name;
+        this.age = age;
+}
+
+Person.prototype. setSex = function (_sex) {
+          this.sex=_sex;
+}
+```
+
+所以说，类不算什么新玩意，大多数类的特性都可以通过之前的函数对象与原型来推导。
+
+1.所有类都有constructor函数，如果没有显式定义，一个空的constructor方法会被默认添加（有点类似java了）。当然所有函数对象都必须有个主体。
+
+2.生成类的实例对象的写法，与ES5通过构造函数生成对象完全一样，也是使用new命令。
+```
+class B {}
+let b = new B();
+```
+3.在类的实例上面调用方法，其实就是调用原型上的方法，因为类上的方法其实都是添加在原型上。
+
+    b.constructor === B.prototype.constructor // true
+    
+4.与函数对象一样，Class也可以使用表达式的形式定义。
+```
+let Person = class Me {
+      getClassName() {
+        return Me.name;
+      }
+};
+```
+相当于
+    var Person = function test(){}
+    
+5.Class其实就是一个function，但是有一点不同，Class不存在变量提升，也就是说Class声明定义必须在使用之前。
+
 
 
