@@ -357,5 +357,60 @@ let Person = class Me {
     
 5.Class其实就是一个function，但是有一点不同，Class不存在变量提升，也就是说Class声明定义必须在使用之前。
 
+#### 全局变量
+
+全局对象是最顶层的对象，在浏览器环境指的是window对象，在Node.js指的是global对象。
+
+ES5之中，全局对象的属性与全局变量是等价的，隐式声明或者在全局环境下声明的变量是挂在全局对象上的。
+
+ES6规定，var命令，function命令以及隐式声明的全局变量，依旧是全局对象的属性；而let命令、const命令、class命令声明的全局变量，不属于全局对象的属性。
+
+```
+var a = 1;
+console.log(window.a) // 1
+
+let b = 1;
+console.log(window.b) // undefined
+```
+
+#### 函数的形参
+
+函数的形参，隐藏着在函数一开始声明了这些形参对应的变量。
+
+`function a(x,y){}`
+
+可以看成  
+
+```
+function a(){
+    var x=arguments.length <= 0 || arguments[0] === undefined ? undefined : arguments[0];
+    var y=arguments.length <= 1 || arguments[1] === undefined ? undefined : arguments[1];
+}
+```
+
+当然在ES6下默认声明就是用的let了，所以函数a变成：
+
+```
+function a(){
+    let x=arguments.length <= 0 || arguments[0] === undefined ? undefined : arguments[0];
+    let y=arguments.length <= 1 || arguments[1] === undefined ? undefined : arguments[1];
+}
+```
+
+所以在ES6中会有以下几个问题：
+
+```
+function a(x = y, y = 2) {
+  return [x, y];
+}
+
+a(); // 报错，给X赋值时y还未被let声明。  
+```
+
+
+function a(x，y) {
+  let x;//相当于重复声明，报错。
+}
+
 
 
