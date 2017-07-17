@@ -223,7 +223,7 @@ function Student(firstName, subject) {
 Student.prototype = Object.create(Person.prototype); // See note below  ,继承父类的函数
 
 // 设置"constructor" 属性指向Student
-Student.prototype.constructor = Student; //设置构造器
+Student.prototype.constructor = Student; //确保构造器正确，设置prototype时会改变cunstructor为父类
 
 // 更换"sayHello" 方法
 Student.prototype.sayHello = function(){
