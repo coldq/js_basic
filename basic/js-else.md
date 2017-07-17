@@ -11,6 +11,7 @@
 为什么(function {// code})();可以被执行, 而function {// code}();却会报错?
 
 4.分析
+
 (1). 首先, 要清楚两者的区别:
 (function {// code})是表达式, function {// code}是函数声明.
 
