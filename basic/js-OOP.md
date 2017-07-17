@@ -259,6 +259,8 @@ function createObject(proto) {
 Student.prototype = createObject(Person.prototype);
 ```
 
+[PS：JS的6种继承方式](http://www.cnblogs.com/ayqy/p/4471638.html)
+
 #### 封装
 
 在上一个例子中，Student类虽然不需要知道Person类的walk()方法是如何实现的，但是仍然可以使用这个方法；Student类不需要明确地定义这个方法，除非我们想改变它。 这就叫做封装，对于所有继承自父类的方法，只需要在子类中定义那些你想改变的即可。
