@@ -52,9 +52,13 @@
 示例：
 
 ```
-<style>
-    @import url(style.css);
-</style>
+@import 'style.css' //Windows IE4/ NS4, Mac OS X IE5, Macintosh IE4/IE5/NS4不识别
+@import "style.css" //Windows IE4/ NS4, Macintosh IE4/NS4不识别
+@import url(style.css) //Windows NS4, Macintosh NS4不识别
+@import url('style.css') //Windows NS4, Mac OS X IE5, Macintosh IE4/IE5/NS4不识别
+@import url("style.css") //Windows NS4, Macintosh NS4不识别
+
+其中，@import url(style.css) 和@import url("style.css")是最优的选择，兼容的浏览器最多。从字节优化的角度来看@import url(style.css)最值得推荐。
 ```
 
 两者都是外部引用CSS的方式，但是存在一定的区别：
@@ -66,3 +70,5 @@
 3. link是XHTML标签，无兼容问题；@import是在CSS2.1提出的，低版本的浏览器不支持。
 
 4. link支持使用Javascript控制DOM去改变样式；而@import不支持。
+
+5. link方式样式的权重高于@import的。
