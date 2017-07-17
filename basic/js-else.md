@@ -49,7 +49,7 @@ console.log(ary.__proto__.constructor==Array);//true
 console.log(ary.constructor==Array)//true 这两段代码是一样的
 ```
 
-这个办法开起来好高大上哦~~，利用了原型链的方法，但是但是，这个是有兼容的哦，在IE早期版本里面__proto__是没有定义的哦~而且，这个仍然有局限性，我们现在就来总结一下第2种方法和第3种方法局限性
+这个办法开起来好高大上，利用了原型链的方法，但是但是，这个是有兼容的哦，在IE早期版本里面__proto__是没有定义的哦~而且，这个仍然有局限性，我们现在就来总结一下第2种方法和第3种方法局限性
 
 #### 总结一下第2种方法和第3种方法局限性
 
@@ -73,6 +73,7 @@ console.log(isArray(ary));
 ### 判断Object是否空
 
 Object.getOwnPropertyNames(obj)或Object.keys(obj)返回一个数组，该数组对元素是 obj 自身拥有的枚举或不可枚举属性名称字符串。
+
 所以可以用下面方法判断obj是否为空：
 
 ```
