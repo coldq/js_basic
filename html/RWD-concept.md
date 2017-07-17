@@ -72,3 +72,9 @@ img <img src="smallRes.jpg" data-fullsrc="largeRes.jpg">
 通过设置一系列的CSS规则,设备的屏幕最大宽度为980像素,容器content将占据60%的宽度(padding填占3%,4%,3%,4%),而侧栏sildebar将占总宽度的30%。
 
 媒体查询有助于考虑多个显示尺寸的可能性,因此,组织样式规则可以快速而方便地修改。使用相同的过程,我们可以设置不同的规则应用于屏幕宽度小于650像素,小于480像素等。
+
+也可以针对不同的媒体,使用不同 stylesheets :
+
+```
+<link rel="stylesheet" media="mediatype and|not|only (media feature)" href="mystylesheet.css">
+```
