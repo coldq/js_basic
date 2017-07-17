@@ -252,8 +252,8 @@ console.log(student1 instanceof Student); // true
 function createObject(proto) {
     function ctor() { }
     ctor.prototype = proto;
-    return new ctor();
-}
+    return new ctor();  //只包含原型，去除父类实例属性
+} 
 
 // Usage:
 Student.prototype = createObject(Person.prototype);
