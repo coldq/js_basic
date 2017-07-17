@@ -78,3 +78,15 @@ img <img src="smallRes.jpg" data-fullsrc="largeRes.jpg">
 ```
 <link rel="stylesheet" media="mediatype and|not|only (media feature)" href="mystylesheet.css">
 ```
+
+#### 媒体查询优点
+
+- 面对不同分辨率设备灵活性强 
+- 能够快捷解决多设备显示适应问题
+
+#### 媒体查询缺点
+
+- 兼容各种设备工作量大，效率低下 
+- 代码累赘，会出现隐藏无用的元素，加载时间加长 
+- 其实这是一种折中性质的设计解决方案，多方面因素影响而达不到最佳效果 
+- 一定程度上改变了网站原有的布局结构，会出现用户混淆的情况
