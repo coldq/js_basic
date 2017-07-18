@@ -1,4 +1,4 @@
-### 被误解的MVC和被神化的MVVM
+### MVC和MVVM
 
 http://kb.cnblogs.com/page/532236/
 
