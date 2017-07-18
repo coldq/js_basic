@@ -23,7 +23,15 @@ DNS 作为互联网的基础协议，其解析的速度似乎容易被网站优�
 
 Chrome内置了DNS Prefetching技术, Firefox 3.5 也引入了这一特性，由于Chrome和Firefox 3.5本身对DNS预解析做了相应优化设置，所以设置DNS预解析的不良影响之一就是可能会降低Google Chrome浏览器及火狐Firefox 3.5浏览器的用户体验。
 
-预解析的实现：
+#### Chrome Predictor 的预测功能优化
+
+Chrome 会随着使用变得更快，它这个特性是通过一个单例对象 Predictor 来实现的。这个对象在浏览器内核进程(Browser Kernel Process)中实例化，它唯一的职责就是观察和学习当前网络活动方式，提前预估用户下一步的操作。下面是一个示例：
+
+用户将鼠标停留在一个链接上，就预示着一个用户的偏好以及下一步的浏览行为。这时 Chrome 就可以提前进行 DNS Lookup 及 TCP 握手。用户的点击操作平均需要将近 200ms,在这个时间就可能处理完 DNS 和 TCP 相关的操作， 也就是省去几百毫秒的延迟时间。 当在地址栏(Omnibox/URL bar) 触发高可能性选项时，就同样会触发一个 DNS lookup 和 TCP 预连接(pre-connect)，甚至在一个不可见的页签中进行预渲染(pre-render)！
+
+我们每个人都会有天天访问的网站，Chrome 会研究在这些页面上的子资源， 并且尝试进行预解析(pre-resolve)，甚至可能会进行预加载(pre-fetch)以优化浏览体验。
+
+####　预解析的实现：
 
 1. 用meta信息来告知浏览器, 当前页面要做DNS预解析:`<meta http-equiv="x-dns-prefetch-control" content="on" />`
 2. 在页面header中使用link标签来强制对DNS预解析: `<link rel="dns-prefetch" href="http://bdimg.share.baidu.com" />`
