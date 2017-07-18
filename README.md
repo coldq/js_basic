@@ -4,6 +4,8 @@
 
 （持续更新ing... :blush: ）
 
+提供gitbook版本：https://coldq.github.io/JS_basic_book/
+
 ## 目录
 * [1. Js基础]()
   * [1.1 prototype和proto的关系是什么](basic/prototype.md)
