@@ -10,7 +10,7 @@ var readline = require('readline');
     doSomething... 
  });
  
- 
+//Else 
 process.stdin.resume();
 process.stdin.setEncoding('ascii');
 
