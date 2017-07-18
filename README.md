@@ -4,7 +4,7 @@
 
 （持续更新ing... :blush: ）
 
-提供gitbook版本：https://coldq.github.io/JS_basic_book/
+[gitbook版本](https://coldq.github.io/JS_basic_book/)
 
 ## 目录
 * [1. Js基础]()
