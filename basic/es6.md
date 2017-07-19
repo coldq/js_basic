@@ -225,7 +225,7 @@ ES6新增的声明变量的关键字，与var类似。
 1.作用域不同
 
 let声明的变量的作用域是块级作用域（之前的js并没有块级作用域，只有函数作用域和全局作用域），var声明的变量的作用域是函数作用域。
-
+```javascript
 {
   let a = 10;
   var b = 1;
@@ -233,19 +233,24 @@ let声明的变量的作用域是块级作用域（之前的js并没有块级作
 
 a // ReferenceError: a is not defined.
 b // 1
+```
+
 2.不存在变量声明提升
 
 用var声明变量时，只要在一个函数作用域内，无论在什么地方声明变量，都会把变量的声明提升到函数作用域的最前头，所以无论使用变量在变量声明前还是声明后，都不会报错。而let不一样，与java以及其他语言一样，let声明的变量，在未声明之前变量是不存在的。（js的语法越来越向java靠拢）
-
+```javascript
 console.log(a); // undefined,但是不报错。
 console.log(b); // ReferenceError: b is not defined.
 
 var a = 2;
 let b = 2;
-注意：在使用babel时可能会遇到这样的情况：
+```
 
+注意：在使用babel时可能会遇到这样的情况：
+```javascript
 console.log(b); //undefined
 let b = 2;
+```
 babel在翻译es6时，似乎直接将let变为了var，所以运行时也有变量声明提升了，但是在Chrome下运行时是正确的。
 
 ##### 3.暂时性死区
@@ -257,7 +262,7 @@ babel在翻译es6时，似乎直接将let变为了var，所以运行时也有变
 暂时性死区的本质就是，只要一进入当前作用域，所要使用的变量就已经存在了，但是不可获取，只有等到声明变量的那一行代码出现，才可以获取和使用该变量。
 
 暂时性死区的意义也是让我们标准化代码，将所有变量的声明放在作用域的最开始。
-```
+```javascript
 var a = 123;  
 {
  console.log(a);//ReferenceError
@@ -267,7 +272,7 @@ var a = 123;
 ##### 4.不允许重复声明
 
 在相同的作用域内，用let声明变量时，只允许声明一遍。 （var是可以多次声明的）
-```
+```javascript
 // 正确
 function () {
   var a = 10;
@@ -306,7 +311,7 @@ ES6引入了类的概念，有了class这个关键字，当然，类只是基于
 
 我们定义一个类：
 
-```
+```javascript
 //定义类
 class Person {
   constructor(name, age) {
@@ -320,7 +325,7 @@ class Person {
 ```
 
 constructor方法，就是构造方法，也就是ES5时代函数对象的主体，而this关键字则代表实例对象，将上述类改写成ES5格式就是：
-```
+```javascript
 function Person(name, age){
           this.name = name;
         this.age = age;
@@ -365,7 +370,7 @@ ES5之中，全局对象的属性与全局变量是等价的，隐式声明或�
 
 ES6规定，var命令，function命令以及隐式声明的全局变量，依旧是全局对象的属性；而let命令、const命令、class命令声明的全局变量，不属于全局对象的属性。
 
-```
+```javascript
 var a = 1;
 console.log(window.a) // 1
 
@@ -381,7 +386,7 @@ console.log(window.b) // undefined
 
 可以看成  
 
-```
+```javascript
 function a(){
     var x=arguments.length <= 0 || arguments[0] === undefined ? undefined : arguments[0];
     var y=arguments.length <= 1 || arguments[1] === undefined ? undefined : arguments[1];
@@ -390,7 +395,7 @@ function a(){
 
 当然在ES6下默认声明就是用的let了，所以函数a变成：
 
-```
+```javascript
 function a(){
     let x=arguments.length <= 0 || arguments[0] === undefined ? undefined : arguments[0];
     let y=arguments.length <= 1 || arguments[1] === undefined ? undefined : arguments[1];
@@ -399,7 +404,7 @@ function a(){
 
 所以在ES6中会有以下几个问题：
 
-```
+```javascript
 function a(x = y, y = 2) {
   return [x, y];
 }
