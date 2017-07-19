@@ -46,7 +46,7 @@ Function.prototype.construct = function (aArgs) {
 
 注意: 上面使用的Object.create()方法相对来说比较新。另一种可选的方法是使用闭包，请考虑如下替代方法：
 
-```
+```javascript
 Function.prototype.construct = function(aArgs) {
   var fConstructor = this, fNewConstr = function() { 
     fConstructor.apply(this, aArgs); 
@@ -57,7 +57,7 @@ Function.prototype.construct = function(aArgs) {
 ```
 
 使用案例：
-```
+```javascript
 function MyConstructor () {
     for (var nProp = 0; nProp < arguments.length; nProp++) {
         this["property" + nProp] = arguments[nProp];
@@ -78,7 +78,7 @@ console.log(myInstance.constructor);              // logs "MyConstructor"
 
 聪明的apply用法允许你在某些本来需要写成遍历数组变量的任务中使用内建的函数。在接下里的例子中我们会使用Math.max/Math.min来找出一个数组中的最大/最小值。
 
-```
+```javascript
 /* min/max number in an array */
 var numbers = [5, 6, 2, 3, 7];
 
@@ -99,7 +99,7 @@ for (var i = 0; i < numbers.length; i++) {
 
 但是当心：如果用上面的方式调用 apply, 你很可能会遇到方法参数个数越界的问题. 当你对一个方法传入非常多的参数 (比如超过1W多个参数) 时, 就非常有可能会导致越界问题, 这个临界值是根据不同的 JavaScript 引擎而定的 (JavaScript 核心中已经做了硬编码  参数个数限制在65536)，因为这个限制(实际上也是任何用到超大栈空间的行为的自然表现)是未指定的. 有些引擎会抛出异常.  更糟糕的是其他引擎会直接限制传入到方法的参数个数，导致参数丢失. (举个例子: 如果某个引擎限制了方法参数最多为4个 [实际真正的参数个数限制当然要高得多了, 这里只是打个比方], 上面的代码中, 真正通过 apply 传到目标方法中的参数为 5, 6, 2, 3, 而不是完整的 numbers 数组.) 如果你的参数数组可能非常大, 那么推荐使用下面这种策略来处理: 将参数数组切块后循环传入目标方法:
 
-```
+```javascript
 function minOfArray(arr) {
   var min = Infinity;
   var QUANTUM = 32768;
@@ -118,7 +118,7 @@ var min = minOfArray([5, 6, 2, 3, 7]);
 
 Apply可以作为monkey-patch一个Firefox或JS库内建函数的最好方式。对于someobject.foo 函数，你可以用一种旁门左道的方式来修改这个函数，像这样：
 
-```
+```javascript
 var originalfoo = someobject.foo;
 someobject.foo = function() {
   //在调用函数前干些什么
