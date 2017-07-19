@@ -36,7 +36,7 @@ apply 与 call() 非常相似，不同之处在于提供参数的方式。apply 
 
 你可以使用apply来给一个对象链接构造器，类似于Java. 在接下来的例子中我们会创建一个叫做construct的全局的Function函数,来使你能够在构造器中使用一个类数组对象而非参数列表。
 
-```
+```javascript
 Function.prototype.construct = function (aArgs) {
   var oNew = Object.create(this.prototype);
   this.apply(oNew, aArgs);
