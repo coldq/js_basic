@@ -1,6 +1,6 @@
 # 牛客网node.js输入获取
 
-```
+```javascript
 var readline = require('readline');  
      const rl = readline.createInterface({  
              input: process.stdin,  
