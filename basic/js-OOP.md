@@ -46,7 +46,7 @@ JavaScript 的核心是支持面向对象的，同时它也提供了强大灵活
 
 我们来创建一个全局变量叫做 MYAPP
 
-```
+```javascript
 // 全局命名空间
 var MYAPP = MYAPP || {};
 ```
@@ -55,13 +55,13 @@ var MYAPP = MYAPP || {};
 
 我们也可以创建子命名空间：
 
-```
+```javascript
 // 子命名空间
 MYAPP.event = {};
 ```
 
 下面是用于创建命名空间和添加变量，函数和方法的代码写法：
-```
+```javascript
 // 给普通方法和属性创建一个叫做MYAPP.commonMethod的容器
 MYAPP.commonMethod = {
   regExForName: "", // 定义名字的正则验证
@@ -101,7 +101,7 @@ MYAPP.event.addListener("yourel", "type", callback);
 构造器常用于给对象的属性赋值或者为调用函数做准备。 在本文的后面描述了类中方法既可以在定义时添加，也可以在使用前添加。
 
 在下面的示例中, Person类实例化时构造器调用一个 alert函数。
-```
+```javascript
 function Person() {
   alert('Person instantiated');
 }
@@ -117,7 +117,7 @@ var person2 = new Person();
 可以使用 关键字 this调用类中的属性, this是对当前对象的引用。 从外部存取(读/写)其属性的语法是: InstanceName.Property; 这与C++，Java或者许多其他语言中的语法是一样的 (在类中语法 this.Property 常用于set和get属性值)
 
 在下面的示例中，我们为定义Person类定义了一个属性 firstName 并在实例化时赋初值。
-```
+```javascript
 function Person(firstName) {
   this.firstName = firstName;
   alert('Person instantiated');
@@ -137,7 +137,7 @@ alert('person2 is ' + person2.firstName); // alerts "person2 is Bob"
 
 在下面的示例中，我们给Person类定义了方法 sayHello()，并调用了它.
 
-```
+```javascript
 function Person(firstName) {
   this.firstName = firstName;
 }
@@ -156,7 +156,7 @@ person2.sayHello(); // alerts "Hello, I'm Bob"
 
 在JavaScript中方法通常是一个绑定到对象中的普通函数, 这意味着方法可以在其所在context之外被调用。 思考下面示例中的代码:
 
-```
+```javascript
 function Person(firstName) {
   this.firstName = firstName;
 }
@@ -191,7 +191,7 @@ helloFunction.call(person1);                        // logs "Hello, I'm Alice"
 JavaScript 并不检测子类的 prototype.constructor (见 Object.prototype), 所以我们必须手动申明它.
 在下面的例子中, 我们定义了 Student类作为 Person类的子类. 之后我们重定义了sayHello() 方法并添加了 sayGoodBye() 方法.
 
-```
+```javascript
 // 定义Person构造器
 function Person(firstName) {
   this.firstName = firstName;
@@ -248,7 +248,7 @@ console.log(student1 instanceof Student); // true
 
 对于“Student.prototype = Object.create(Person.prototype);”这一行，在不支持 Object.create方法的老JavaScript引擎中，可以使用一个"polyfill"（又名"shim"，查看文章链接），或者使用一个function来获得相同的返回值，就像下面：
 
-```
+```javascript
 function createObject(proto) {
     function ctor() { }
     ctor.prototype = proto;
