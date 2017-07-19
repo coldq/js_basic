@@ -25,7 +25,7 @@ fun.call(thisArg[, arg1[, arg2[, ...]]])
 
 在一个子构造函数中，你可以通过调用父构造函数的 call 方法来实现继承，类似于Java中的写法。下例中，使用 Food 和 Toy 构造函数创建的对象实例都会拥有在 Product 构造函数中添加的 name 属性和 price 属性,但 category 属性是在各自的构造函数中定义的。
 
-```
+```javascript
 function Product(name, price) {
   this.name = name;
   this.price = price;
@@ -67,7 +67,7 @@ var fun = new Toy('robot', 40);
 
 在下例中的for循环体内，我们创建了一个匿名函数，然后通过调用该函数的call方法，将每个数组元素作为指定的this值执行了那个匿名函数。这个匿名函数的主要目的是给每个数组元素对象添加一个print方法，这个print方法可以打印出各元素在数组中的正确索引号。当然，这里不是必须得让数组元素作为this值传入那个匿名函数（普通参数就可以），目的是为了演示call的用法。
 
-```
+```javascript
 var animals = [
   {species: 'Lion', name: 'King'},
   {species: 'Whale', name: 'Fail'}
@@ -87,7 +87,7 @@ for (var i = 0; i < animals.length; i++) {
 
 在下面的例子中，当调用 greet 方法的时候，该方法的 this 值会绑定到 i 对象。
  
-```
+```javascript
 function greet() {
   var reply = [this.person, 'Is An Awesome', this.role].join(' ');
   console.log(reply);
