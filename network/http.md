@@ -38,3 +38,9 @@ FxlRugatx63JLv7CWMD6UB_O_r
 
 hl=zh-CN&source=hp&q=domety
 ```
+
+### 请求报文参数详解
+
+请求方法
+
+所有请求方法名称全为大写，目前有9种：
