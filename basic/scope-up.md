@@ -1,7 +1,7 @@
 ## 关于JavaScript的变量提升
 [转](https://github.com/Wscats/Good-text-Share/issues/73)
 
-```
+```javascript
 var v='Hello World'; 
 alert(v); 
 ```
@@ -16,7 +16,7 @@ alert(v);
 
 也是弹出了“Hello World”
 
-```
+```javascript
 var v='Hello World'; 
 (function(){ 
 alert(v); 
@@ -28,7 +28,7 @@ var v='I love you';
 这里面隐藏了一个陷阱，就是JavaScript中的变量提升
 它相当于
 
-```
+```javascript
 var v='Hello World'; 
 (function(){ 
 var v;
@@ -39,7 +39,7 @@ v='I love you';
 
 变量提升，简单的理解，就是把变量提升提到函数的最顶的地方。需要说明的是，变量提升只是提升变量的声明，并不会把赋值也提升上来，没赋值的变量初始值是undefined。所以上面就出现了声明为undefined的var，因为赋值在后面声明提升在了前面。
 
-```
+```javascript
 function foo() {  
     if (false) {  
         var x = 1;  
@@ -63,7 +63,7 @@ function foo() {
 
 还有一种就是函数提升
 
-```
+```javascript
 function myTest(){ 
     foo(); 
     function foo(){ 
@@ -76,7 +76,7 @@ myTest();
 弹出“Hello World”
 这里函数提升成功
 
-```
+```javascript
 function myTest(){ 
     foo(); 
     var foo =function foo(){ 
@@ -93,7 +93,7 @@ myTest();
 Javascript定义函数有两种类型
 
 函数声明
-```
+```javascript
 // 函数声明
 function wscat(type){
     return type==="wscat";
@@ -102,7 +102,7 @@ function wscat(type){
 
 函数表达式
 
-```
+```javascript
 // 函数表达式
 var oaoafly = function(type){
     return type==="oaoafly";
@@ -111,7 +111,7 @@ var oaoafly = function(type){
 
 先看下面这个经典问题，在一个程序里面同时用函数声明和函数表达式定义一个名为getName的函数
 
-```
+```javascript
 getName()//oaoafly
 var getName = function() {
     console.log('wscat')
@@ -128,7 +128,7 @@ getName()//wscat
 
 JavaScript 解释器中存在一种变量声明被提升的机制，也就是说函数声明会被提升到作用域的最前面，即使写代码的时候是写在最后面，也还是会被提升至最前面。
 而用函数表达式创建的函数是在运行时进行赋值，且要等到表达式赋值完成后才能调用.
- ```
+ ```javascript
 var getName//变量被提升，此时为undefined
 
 getName()//oaoafly 函数被提升 这里受函数声明的影响，虽然函数声明在最后可以被提升到最前面了
@@ -147,7 +147,7 @@ getName()//wscat 这里就执行了函数表达式的值
 
 所以可以分解为这两个简单的问题来看清楚区别的本质
 
-```
+```javascript
 var getName;
 console.log(getName)//undefined
 getName()//Uncaught TypeError: getName is not a function
