@@ -133,3 +133,7 @@ if (inst.shouldComponentUpdate) {
 }
 ```
 
+### 参考
+
+[React PureComponent 使用指南](https://wulv.site/2017-05-31/react-purecomponent.html)
+
