@@ -12,7 +12,7 @@ Promise 对象曾经以多种形式存在于许多语言中。
 #### 去除厄运的回调金字塔(Pyramid of Doom)
 Javascript 中最常见的反模式做法是回调内部再嵌套回调。
 
-```
+```javascript
 // 回调金字塔
 asyncOperation(function(data){
   // 处理 `data`
@@ -26,7 +26,7 @@ asyncOperation(function(data){
 ```
 引入 Promises 之后的代码
 
-```
+```javascript
 promiseSomething()
 .then(function(data){
     // 处理 `data`
@@ -51,7 +51,7 @@ promise 表示一个最终值，该值由一个操作完成时返回。
 
 promise 有一个 then 方法，then 方法可以接受 3 个函数作为参数。前两个函数对应 promise 的两种状态 fulfilled 和 rejected 的回调函数。第三个函数用于处理进度信息（对进度回调的支持是可选的）。
 
-```
+```javascript
 promiseSomething().then(function(fulfilled){
         //当promise状态变成fulfilled时，调用此函数
     },function(rejected){
