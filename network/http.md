@@ -41,7 +41,7 @@ hl=zh-CN&source=hp&q=domety
 
 ### 请求报文参数详解
 
-请求方法
+#### 请求方法
 
 所有请求方法名称全为大写，目前有9种：
 
@@ -51,7 +51,7 @@ hl=zh-CN&source=hp&q=domety
 安全性：https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol
 幂等性：表示的操作至多只会被处理一次，每次调用都将返回第一次调用时的处理结果。
 
-关于HTTP请求GET和POST的区别
+#### 关于HTTP请求GET和POST的区别
 
 1. 提交形式：
 GET提交的数据会放在URL之后，以?分割URL和传输数据，参数之间以&相连，如EditPosts.aspx?name=test1&id=123456.  POST方法是把提交的数据放在HTTP包的Body中
@@ -64,3 +64,8 @@ HTTP协议本身没有对传输的数据大小进行限制，HTTP协议规范也
    
 3. 安全性： 
 POST的安全性要比GET的安全性高，具有真正的Security的含义。而且通过GET提交数据，用户名和密码将明文出现在URL上，因为登录页面有可能被浏览器缓存，其他用户浏览历史纪录就可以拿到账号和密码了。
+
+#### 请求报头域
+
+报头域指头部中的Key，且不分大小写。
+
