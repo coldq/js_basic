@@ -132,4 +132,7 @@ var MyComponent = React.createClass({
 
 看完这些，可以看看：[React渲染](./React-render.md)
 
-
+### 参考
+[]()
+[]()
+[]()
