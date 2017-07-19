@@ -30,7 +30,7 @@ bind() 函数会创建一个新函数（称为绑定函数），新函数与被�
 
 bind() 最简单的用法是创建一个函数，使这个函数不论怎么调用都有同样的 this 值。JavaScript新手经常犯的一个错误是将一个方法从对象中拿出来，然后再调用，希望方法中的 this 是原来的对象。（比如在回调中传入这个方法。）如果不做特殊处理的话，一般会丢失原来的对象。从原来的函数和原来的对象创建一个绑定函数，则能很漂亮地解决这个问题：
 
-```
+```javascript
 this.x = 9; 
 var module = {
   x: 81,
@@ -52,7 +52,7 @@ boundGetX(); // 返回 81
 
 bind()的另一个最简单的用法是使一个函数拥有预设的初始参数。这些参数（如果有的话）作为bind()的第二个参数跟在this（或其他对象）后面，之后它们会被插入到目标函数的参数列表的开始位置，传递给绑定函数的参数会跟在它们的后面。
 
-```
+```javascript
 function list() {
   return Array.prototype.slice.call(arguments);
 }
@@ -70,7 +70,7 @@ var list3 = leadingThirtysevenList(1, 2, 3); // [37, 1, 2, 3]
 
 在默认情况下，使用 window.setTimeout() 时，this 关键字会指向 window （或全局）对象。当使用类的方法时，需要 this 引用类的实例，你可能需要显式地把 this 绑定到回调函数以便继续使用实例。
 
-```
+```javascript
 function LateBloomer() {
   this.petalCount = Math.ceil(Math.random() * 12) + 1;
 }
@@ -95,7 +95,7 @@ flower.bloom();  // 一秒钟后, 调用'declare'方法
 
 自然而然地，绑定函数适用于用new操作符 new 去构造一个由目标函数创建的新的实例。当一个绑定函数是用来构建一个值的，原来提供的 this 就会被忽略。然而, 原先提供的那些参数仍然会被前置到构造函数调用的前面。
 
-```
+```javascript
 function Point(x, y) {
   this.x = x;
   this.y = y;
@@ -125,7 +125,7 @@ new Point(17, 42) instanceof YAxisPoint; // true
 
 你知道不需要做特别的处理就可以用new操作符 new 创建一个绑定函数。必然地，你需要知道不需要做特别处理就可以创建一个可以被直接调用的绑定函数，即使你更希望绑定函数是用new操作符 new 来调用。
 
-```
+```javascript
 // 这个例子可以直接在你的 javascript 控制台运行
 // ...接着上面的代码继续(译注：
 
@@ -144,7 +144,7 @@ emptyObj.x + ',' + emptyObj.y;   //  '0,13'
 
 你可以用 Array.prototype.slice 来将一个类似于数组的对象（array-like object）转换成一个真正的数组，就拿它来举例子吧。你可以创建这样一个捷径：
 
-```
+```javascript
 var slice = Array.prototype.slice;
 
 // ...
@@ -154,7 +154,7 @@ slice.apply(arguments);
 
 用 bind() 可以使这个过程变得简单。在下面这段代码里面，slice 是 Function.prototype 的 call() 方法的绑定函数，并且将 Array.prototype 的 slice() 方法作为 this 的值。这意味着我们压根儿用不着上面那个 apply() 调用了。
 
-```
+```javascript
 // same as "slice" in the previous example
 var unboundSlice = Array.prototype.slice;
 var slice = Function.prototype.call.bind(unboundSlice);
@@ -176,7 +176,7 @@ str([]) //'[object Array]'
 
 bind 函数在 ECMA-262 第五版才被加入；它可能无法在所有浏览器上运行。你可以部份地在脚本开头加入以下代码，就能使它运作，让不支持的浏览器也能使用 bind() 功能。
 
-```
+```javascript
 if (!Function.prototype.bind) {
   Function.prototype.bind = function (oThis) {
     if (typeof this !== "function") {
