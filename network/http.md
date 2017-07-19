@@ -19,7 +19,7 @@ HTTP是一个应用层协议，虽然在2015年已推出HTTP/2版本，并被主
 
 ### 请求报文样例
 
-```xml
+```java
 POST /search HTTP/1.1  
 Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, application/vnd.ms-excel, application/vnd.ms-powerpoint, 
 application/msword, application/x-silverlight, application/x-shockwave-flash, */*  
