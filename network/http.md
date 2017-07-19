@@ -176,3 +176,6 @@ Session是可以存储针对于某一个用户的浏览器以及通过其当前�
 
 保存SessionID的方式可以采用Cookie，这样在交互过程中浏览器可以自动的按照规则把这个SessionID发回给服务器。Cookie的命名方式类似于SessionID。有时Cookie被人为的禁止，所以出现了其他机制以便在Cookie被禁止时仍然能够把SessionID传递回服务器。这种技术叫做URL重写，就是把SessionID直接附加在URL路径的后面，附加方式也有两种，一种是作为URL路径的附加信息，表现形式为`http://www.wantsoft.com/index.asp;jsessionid= ByOK3vjFD75aPnrF7C2HmdnV6QZcEbzWoWiBYEnLerjQ99zWpBng!-145788764 `。
 另一种是作为查询字符串附加在URL后面，表现形式为`http://www.wantsoft.com/index?js ... 99zWpBng!-145788764 `。
+
+#### 相关资料
+
