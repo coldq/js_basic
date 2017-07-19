@@ -135,4 +135,4 @@ var MyComponent = React.createClass({
 ### 参考
 []()
 []()
-[]()
+[深入浅出React（四）：虚拟DOM Diff算法解析](http://www.infoq.com/cn/articles/react-dom-diff/)
