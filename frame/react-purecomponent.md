@@ -76,6 +76,18 @@ class App extends PureComponent {
 }
 ```
 
+会发现，无论怎么点 delete 按钮， li 都不会变少，因为 items 用的是一个引用， shallowEqual 的结果为 true 。改正：
+
+```javascript
+handleClick = () => {
+  const { items } = this.state;
+  items.pop();
+  this.setState({ items: [].concat(items) });
+}
+```
+
+这样每次改变都会产生一个新的数组，也就可以 render 了。这里有一个矛盾的地方，如果没有 items.pop(); 操作，每次 items 数据并没有变，但还是 render 了，数据都不变，你 setState 干嘛？
+
 这里的解决方案主要有：
 
 - 深比较： 原理与深拷贝类似，比较耗时，不推荐
