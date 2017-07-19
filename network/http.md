@@ -179,3 +179,9 @@ Session是可以存储针对于某一个用户的浏览器以及通过其当前�
 
 #### 相关资料
 
+
+[Hypertext Transfer Protocol](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol)
+[HTTP 协议详解](http://kb.cnblogs.com/page/130970/)
+[HTTP请求报文和HTTP响应报文](http://blog.csdn.net/zhangliang_571/article/details/23508953)
+[HTTP协议详解（经典）](http://blog.csdn.net/gueter/archive/2007/03/08/1524447.aspx)
+[HTTP协议之Session和Cookie](http://leowzy.iteye.com/blog/1216841)
