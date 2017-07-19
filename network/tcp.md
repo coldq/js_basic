@@ -68,3 +68,11 @@ ack：是发送方期望对方在下次返回报文中给回的Seq。
 #### 为什么关闭的时候却是四次挥（握）手？
 
 因为当Server端收到Client端的SYN连接请求报文后，可以直接发送SYN+ACK报文。其中ACK报文是用来应答的，SYN报文是用来同步的。但是关闭连接时，当Server端收到FIN报文时，很可能并不会立即关闭SOCKET，所以只能先回复一个ACK报文，告诉Client端，"你发的FIN报文我收到了"。只有等到我Server端所有的报文都发送完了，我才能发送FIN报文，因此不能一起发送。故需要四步握手。
+
+#### 相关资料
+
+[Hypertext Transfer Protocol -- HTTP/1.1](http://www.cnblogs.com/ImBit/p/5513401.html)
+[TCP/IP Reference](https://nmap.org/book/tcpip-ref.html)
+[TCP 的那些事儿（上）](http://kb.cnblogs.com/page/209100/)
+[TCP协议中的三次握手和四次挥手(图解)](http://blog.csdn.net/whuslei/article/details/6667471)
+
