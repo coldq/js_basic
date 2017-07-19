@@ -38,6 +38,28 @@ React 是基于组件构建应用的，一个组件可以看做virtual DOM tree�
 
 - 如果不是，则将该组件判断为 dirty component，从而替换整个组件下的所有子节点。
 
+#### 列表
+
+假设我们有个 component, 一个循环渲染了 5 个 component,
+随后又在列表中间插入一个新的 component.
+只知道这些信息, 要弄清两个 component 的列表怎么对应很难.
+
+默认情况下, React 会将前一个列表第一个 component 和后一个第一个关联起来, 后面也是。
+你可以写一个 key 属性帮助 React 来处理它们之间的对应关系。
+实际中, 在子元素中找到唯一的 key 通常很容易。
+
+列表节点的操作通常包括添加、删除和排序。例如下图，我们需要往B和C直接插入节点F。在React中，我们只会告诉React新的界面应该是A-B-F-C-D-E，由Diff算法完成更新界面。
+
+
+
+这时如果每个节点都没有唯一的标识，React无法识别每一个节点，那么更新过程会很低效，即，将C更新成F，D更新成C，E更新成D，最后再插入一个E节点。效果如下图所示：
+
+
+
+可以看到，React会逐个对节点进行更新，转换到目标节点。而最后插入新的节点E，涉及到的DOM操作非常多。而如果给每个节点唯一的标识（key），那么React能够找到正确的位置去插入新的节点，入下图所示：
+
+
+
 ![](/image/5-1-3.png)
 
 如图，当 component D 改变为 component G 时，即使这两个 component 结构相似，一旦 React 判断 D 和 G 是不同类型的组件，就不会比较二者的结构，而是直接删除 component D，重新创建 component G 以及其子节点。虽然当两个 component 是不同类型但结构相似时，React diff 会影响性能，但正如 React 官方博客所言：不同类型的 component 是很少存在相似 DOM tree 的机会，因此这种极端因素很难在实现开发过程中造成重大影响的。
@@ -50,8 +72,8 @@ React 是基于组件构建应用的，一个组件可以看做virtual DOM tree�
 当在树中的同一位置前后输出了不同类型的节点，React直接删除前面的节点，然后创建并插入新的节点。假设我们在树的同一位置前后两次输出不同类型的节点。
 
 2. 节点类型相同，但是属性不同。
+React会对属性进行重设从而实现节点的转换。
 
-当在树中的同一位置前后输出了不同类型的节点，React直接删除前面的节点，然后创建并插入新的节点。假设我们在树的同一位置前后两次输出不同类型的节点。
 ```javascript
 var MyComponent = React.createClass({
   render: function() {
@@ -63,3 +85,18 @@ var MyComponent = React.createClass({
   }
 });
 ```
+
+比如, 当我们挂载了 `<MyComponent first={true} />`
+, 然后用 `<MyComponent first={false} />` 替换, 然后又取消挂载,这样一个过程的 DOM 的指令是这样的:
+
+- 从没有到第一步
+创建节点: `<div className="first"><span>A Span</span></div>`
+
+- 第一步到第二步
+替换属性: `className="first"` 到 `className="second"`
+替换节点: `<span>A Span</span> `到 `<p>A Paragraph</p>`
+
+- 第二步到没有
+删除节点:` <div className="second"><p>A Paragraph</p></div>`
+
+
