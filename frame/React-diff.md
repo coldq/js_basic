@@ -130,6 +130,6 @@ var MyComponent = React.createClass({
 
 - 在开发过程中，尽量减少类似将最后一个节点移动到列表首部的操作，当节点数量过大或更新操作过于频繁时，在一定程度上会影响 React 的渲染性能。
 
-[React渲染](./React-render.md)
+[看完这些，可以看看：React渲染](./React-render.md)
 
 
