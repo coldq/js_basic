@@ -27,14 +27,14 @@ otherSeasons      // => ['winter']
 
 ES6引入了一种新型的字符串字面量语法，我们称之为模板字符串（template strings）。除了使用反撇号字符 ` 代替普通字符串的引号 ' 或 " 外，它们看起来与普通字符串并无二致。在最简单的情况下，它们与普通字符串的表现一致：
 
-```
+```javascript
 let str = `Ceci n'est pas une chaîne.`;
 typeof str //"string"
 ```
 
 它为JavaScript提供了简单的字符串插值功能，从此以后，你可以通过一种更加美观、更加方便的方式向字符串中插值了。
 
-```
+```javascript
 let name = 'Tom';
 console.log(`my name is ${name}`);//my name is Tom
 ```
@@ -51,7 +51,7 @@ console.log(`my name is ${name}`);//my name is Tom
 
 与普通字符串不同的是，模板字符串可以多行书写：
 
-```
+```javascript
 let s = `ww
 ee
 rr`
@@ -77,7 +77,7 @@ ES5中最原始的变量声明，用于声明变量，其实JavaScript是弱类�
 ##### 1.作用域
 
 使用var声明的变量的作用域是函数作用域（在ES5时代，只有函数作用域和全局作用域两种作用域），在一个函数内用var声明的变量，则只在这个函数内有效。
-```
+```javascript
 function test(){
     var a;
     console.log(a);//undefined
@@ -88,7 +88,7 @@ console.log(a);//ReferenceError: a is not defined
 ##### 2.变量声明提升
 
 用var声明变量时，只要在一个函数作用域内，无论在什么地方声明变量，都会把变量的声明提升到函数作用域的最前头，所以无论使用变量在变量声明前还是声明后，都不会报错（当然只是声明提前，赋值并没有提前，所以如果使用在声明之前，会输出undefined，但不会报错）。
-```
+```javascript
 function test(){
     console.log(a);//undefined
     var a=3;
@@ -98,7 +98,7 @@ function test(){
 ##### 隐式声明
 
 当没有声明，直接给变量赋值时，会隐式地给变量声明，此时这个变量作为全局变量存在。
-```
+```javascript
 function test(){
     a=3;
     console.log(a);//3
@@ -107,7 +107,7 @@ test();
 console.log(a);//3
 ```
 当然要注意，隐式声明的话就没有变量声明提前的功能了，所以下面的使用是会报错的。
-```
+```javascript
 function test(){
     console.log(a);//ReferenceError: a is not defined
     a=3;
@@ -118,7 +118,7 @@ function test(){
 
 用function声明的是函数对象，作用域与var一样，是函数作用域。
 
-```
+```javascript
 function test(){
     function a(){
         console.log('d');
@@ -130,7 +130,7 @@ a();//ReferenceError: a is not defined
 
 同样，function声明也有变量声明提升，下面是两个特殊的例子：
 
-```
+```javascript
 function hello1(a){
        console.log(a); //[Function: a]
     function a(){}
@@ -148,7 +148,7 @@ hello2('test');
 
 这里有涉及到函数中形参的声明，我们可以将以上两个例子看成：
 
-```
+```javascript
 function hello1(a){
     var a='test；
        console.log(a); //[Function: a]
@@ -170,7 +170,7 @@ hello2('test');
 
 当函数对象和普通对象同时声明时，函数对象的声明提前在普通对象之后。
 
-```
+```javascript
 function test(){     
     console.log(a);//[Function: a]
     function a(){}
@@ -187,7 +187,7 @@ ES6新增的声明变量的关键字，与var类似。
 ##### 1.作用域不同
 
 let声明的变量的作用域是块级作用域（之前的js并没有块级作用域，只有函数作用域和全局作用域），var声明的变量的作用域是函数作用域。
-```
+```javascript
 {
   let a = 10;
   var b = 1;
@@ -200,7 +200,7 @@ b // 1
 
 用var声明变量时，只要在一个函数作用域内，无论在什么地方声明变量，都会把变量的声明提升到函数作用域的最前头，所以无论使用变量在变量声明前还是声明后，都不会报错。而let不一样，与java以及其他语言一样，let声明的变量，在未声明之前变量是不存在的。（js的语法越来越向java靠拢）
 
-```
+```javascript
 console.log(a); // undefined,但是不报错。
 console.log(b); // ReferenceError: b is not defined.
 
@@ -210,7 +210,7 @@ let b = 2;
 
 注意：在使用babel时可能会遇到这样的情况：
 
-```
+```javascript
 console.log(b); //undefined
 let b = 2;
 ```
