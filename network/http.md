@@ -167,7 +167,7 @@ Session是可以存储针对于某一个用户的浏览器以及通过其当前�
   而web服务器会检查是否有SessionID过来，没有则创建SessionID，并根据web程序自身定义在请求哪个资源时添加属于当前会话的信息（也可为空），这个信息列表以SessionID作为标识。然后将SessionID返回给客户端（通过响应报文头的Set-Cookie头域）。
 (2 )客户端再次访问同个web站点时，提交带有SessionID的请求（通过Cookie头域存储SessionID）。由服务端判断session是否失效，如果未失效，可查询属于当前会话的信息列表。如果失效，则创建新的session（产生新的SessionID），而原先的session（包含session带的信息列表）则丢失，无法访问。
 
-
+![](/image/4-8-7.png)
 
 
 
