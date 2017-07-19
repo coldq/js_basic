@@ -50,3 +50,6 @@ boolean shouldComponentUpdate(object nextProps, object nextState)
 比 React 的做法时间少, 还有比计算 component 需要的时间少,
 即便重新绘制并不是必要的.
 
+![](/image/5-6-3.png)
+
+
