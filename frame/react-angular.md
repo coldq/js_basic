@@ -1,5 +1,9 @@
 ## angularJs和react比较
 
+ReactJS快速回顾
+
+ReactJS是一套JavaScript Web库，由Facebook打造而成且主要用于构建高性能及响应式用户界面。React负责解决其它javascript框架所面对的一大常见难题，即对大规模数据集的处理。能够使用虚拟DOM并在发生变更时利用补丁安装机制只对DOM中的dirty部分进行重新渲染，React得以实现远超其它框架的速度表现。
+
 优势:
 
 1.React伟大之处就在于，提出了Virtual Dom这种新颖的思路，并且这种思路衍生出了React Native，有可能会统一Web/Native开发。在性能方面，由于运用了Virtual Dom技术，Reactjs只在调用setState的时候会更新dom，而且还是先更新Virtual Dom，然后和实际Dom比较，最后再更新实际Dom。这个过程比起AngularJS的bind方式来说，一是更新dom的次数少，二是更新dom的内容少，速度肯定快。
