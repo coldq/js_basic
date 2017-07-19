@@ -12,7 +12,7 @@ PS:Function.prototype是个特例，它是函数对象，但是没有prototype�
 
 在new一个对象的过程中，对象的__proto__指向其构造函数的prototype。
 
-```
+```javascript
 var Person = function () {
 this.a = 'a';
  };
@@ -29,7 +29,7 @@ Person.call(p);//也就是说构造p，也可以称之为初始化p
 ```
 
 原型链层层链接，在查找的过程中从最近的开始。
-```
+```javascript
 var Person = function () { };
 Person.prototype.Say = function () {
     alert("Person say");
