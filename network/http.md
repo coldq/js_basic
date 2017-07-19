@@ -19,16 +19,19 @@ HTTP是一个应用层协议，虽然在2015年已推出HTTP/2版本，并被主
 
 ### 请求报文样例
 
-```http
+```
 POST /search HTTP/1.1  
+
 Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, application/vnd.ms-excel, application/vnd.ms-powerpoint, 
 application/msword, application/x-silverlight, application/x-shockwave-flash, */*  
+
 Referer: http://www.google.cn/  
 Accept-Language: zh-cn  
 Accept-Encoding: gzip, deflate  
 User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 2.0.50727; TheWorld)  
 Host: www.google.cn 
 Connection: Keep-Alive  
+
 Cookie: PREF=ID=80a06da87be9ae3c:U=f7167333e2c3b714:NW=1:TM=1261551909:LM=1261551917:S=ybYcq2wpfefs4V9g; 
 NID=31=ojj8d-IygaEtSxLgaJmqSjVhCspkviJrB6omjamNrSm8lZhKy_yMfO2M4QMRKcH1g0iQv9u-2hfBW7bUFwVh7pGaRUb0RnHcJU37y-
 FxlRugatx63JLv7CWMD6UB_O_r  
