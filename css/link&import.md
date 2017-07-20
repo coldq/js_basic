@@ -75,6 +75,9 @@
 
 3. link是XHTML标签，无兼容问题；@import是在CSS2.1提出的，低版本的浏览器不支持。
 
+Chrome	Firefox (Gecko)	 IE	Opera	Safari
+(Yes)	   (Yes)	 5.5	(Yes)	(Yes)
+
 4. link支持使用Javascript控制DOM去改变样式；而@import不支持。
 
 5. link方式样式的权重高于@import的。
