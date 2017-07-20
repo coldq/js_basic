@@ -51,10 +51,9 @@
   * [5.3 React对比Vue](frame/react-vue.md)
   * [5.4 React对比angularJs](frame/react-angular.md)
   * [5.5 React的pureComponent](frame/react-purecomponent.md)
-  * [5.6 MVC和MVVM](frame/mvc-mvvm.md)
+  * [5.6 React渲染](frame/React-render.md)
+  * [5.7 MVC和MVVM](frame/mvc-mvvm.md)
 * [6. Else]() 
   * [6.1 牛客网Node.js输入](else/nowCoder.md)
   * [6.2 首屏，白屏时间如何计算](else/firstScreen.md)
   * [6.3 Jest基本用法](else/jestUsage.md)
-
-
