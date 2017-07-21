@@ -54,3 +54,72 @@ s.fontSize = "14px"; // 再一次 回流+重绘
 // 添加node，再一次 回流+重绘
 document.body.appendChild(document.createTextNode('abc!'));
 ```
+
+说到这里大家都知道回流比重绘的代价要更高，回流的花销跟render tree有多少节点需要重新构建有关系，假设你直接操作body，比如在body最前面插入1个元素，会导致整个render tree回流，这样代价当然会比较高，但如果是指body后面插入1个元素，则不会影响前面元素的回流。
+
+聪明的浏览器
+
+     从上个实例代码中可以看到几行简单的JS代码就引起了6次左右的回流、重绘。而且我们也知道回流的花销也不小，如果每句JS操作都去回流重绘的话，浏览器可能就会受不了。所以很多浏览器都会优化这些操作，浏览器会维护1个队列，把所有会引起回流、重绘的操作放入这个队列，等队列中的操作到了一定的数量或者到了一定的时间间隔，浏览器就会把flush队列，进行一个批处理。这样就会让多次的回流、重绘变成一次回流重绘。
+
+    虽然有了浏览器的优化，但有时候我们写的一些代码可能会强制浏览器提前flush队列，这样浏览器的优化可能就起不到作用了。当你请求向浏览器请求一些style信息的时候，就会让浏览器flush队列，比如：
+    1. offsetTop, offsetLeft, offsetWidth, offsetHeight
+    2. scrollTop/Left/Width/Height
+    3. clientTop/Left/Width/Height
+    4. width,height
+    5. 请求了getComputedStyle(), 或者 ie的 currentStyle
+    
+    当你请求上面的一些属性的时候，浏览器为了给你最精确的值，需要flush队列，因为队列中可能会有影响到这些值的操作。
+
+如何减少回流、重绘
+
+    减少回流、重绘其实就是需要减少对render tree的操作，并减少对一些style信息的请求，尽量利用好浏览器的优化策略。具体方法有：
+
+    1. 不要1个1个改变元素的样式属性，最好直接改变className，但className是预先定义好的样式，不是动态的，如果你要动态改变一些样式，则使用cssText来改变，见下面代码：
+// 不好的写法
+var left = 1;
+var top = 1;
+el.style.left = left + "px";
+el.style.top  = top  + "px";
+
+// 比较好的写法 
+el.className += " className1";
+
+// 比较好的写法 
+el.style.cssText += "; left: " + left + "px; top: " + top + "px;";
+
+    2. 让要操作的元素进行"离线处理"，处理完后一起更新，这里所谓的"离线处理"即让元素不存在于render tree中，比如：
+        a) 使用documentFragment或div等元素进行缓存操作，这个主要用于添加元素的时候，大家应该都用过，就是先把所有要添加到元素添加到1个div(这个div也是新加的)，
+            最后才把这个div append到body中。
+        b) 先display:none 隐藏元素，然后对该元素进行所有的操作，最后再显示该元素。因对display:none的元素进行操作不会引起回流、重绘。所以只要操作只会有2次回流。
+
+3 不要经常访问会引起浏览器flush队列的属性，如果你确实要访问，就先读取到变量中进行缓存，以后用的时候直接读取变量就可以了，见下面代码：
+
+```javascript
+// 别这样写，大哥
+for(循环) {
+    el.style.left = el.offsetLeft + 5 + "px";
+    el.style.top  = el.offsetTop  + 5 + "px";
+}
+
+// 这样写好点
+var left = el.offsetLeft,top  = el.offsetTop,s = el.style;
+for(循环) {
+    left += 10;
+    top  += 10;
+    s.left = left + "px";
+    s.top  = top  + "px";
+}
+```
+
+4. 考虑你的操作会影响到render tree中的多少节点以及影响的方式，影响越多，花费肯定就越多。比如现在很多人使用jquery的animate方法移动元素来展示一些动画效果，想想下面2种移动的方法：
+    
+```
+// block1是position:absolute 定位的元素，它移动会影响到它父元素下的所有子元素。
+// 因为在它移动过程中，所有子元素需要判断block1的z-index是否在自己的上面，
+// 如果是在自己的上面,则需要重绘,这里不会引起回流
+$("#block1").animate({left:50});
+// block2是相对定位的元素,这个影响的元素与block1一样，但是因为block2非绝对定位
+// 而且改变的是marginLeft属性，所以这里每次改变不但会影响重绘，
+// 还会引起父元素及其下元素的回流
+$("#block2").animate({marginLeft:50});
+```
