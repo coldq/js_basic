@@ -37,3 +37,20 @@
 4. 对style的操作(对不同的属性操作，影响不一样)
 
 5. 还有一种是用户的操作，比如改变浏览器大小，改变浏览器的字体大小等(回流+重绘)
+
+让我们看看下面的代码是如何影响回流和重绘的: 
+
+```javascript
+var s = document.body.style; 
+
+s.padding = "2px"; // 回流+重绘
+s.border = "1px solid red"; // 再一次 回流+重绘
+
+s.color = "blue"; // 再一次重绘
+s.backgroundColor = "#ccc"; // 再一次 重绘
+
+s.fontSize = "14px"; // 再一次 回流+重绘
+
+// 添加node，再一次 回流+重绘
+document.body.appendChild(document.createTextNode('abc!'));
+```
