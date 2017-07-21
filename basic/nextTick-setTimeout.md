@@ -17,6 +17,7 @@
 
  You shouldn’t necessarily be concerned about the order of operations in this regard though in my estimation.
  ```
+ 但是在node.js 8.1
 
 
 ### 举例
