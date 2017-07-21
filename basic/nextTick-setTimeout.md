@@ -32,3 +32,8 @@ C();
 ```
 
 ![](/image/1-12-3.jpg)
+
+
+### 参考
+
+[转向Javascript系列-从setTimeout说事件循环模型 I](http://www.alloyteam.com/2015/10/turning-to-javascript-series-from-settimeout-said-the-event-loop-model/)
