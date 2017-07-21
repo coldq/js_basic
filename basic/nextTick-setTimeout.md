@@ -17,7 +17,26 @@
 
  You shouldn’t necessarily be concerned about the order of operations in this regard though in my estimation.
  ```
- 但是在node.js 8.1
+ 但是在node.js 最新版本（8.2.1），setTimeout都比setImmediate先执行。
+ ```
+var res = [];
+
+setImmediate(function() {
+    res.push(2)
+});
+setTimeout(function() {
+    res.push(1)
+}, 0);
+
+res.push(3)
+process.nextTick(function() {
+    res.push(4)
+});
+
+setImmediate(function() {
+        console.log(res)//[3,4,1,2]
+});
+ ```
 
 
 ### 举例
