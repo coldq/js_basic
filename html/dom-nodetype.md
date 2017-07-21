@@ -26,7 +26,7 @@ DOM的作用是将网页转为一个javascript对象，从而可以使用javascr
 | 9	|  Node.DOCUMENT_NODE(9)| 代表整个文档（DOM 树的根节点）。| 
 | 10	| Node.DOCUMENT_TYPE_NODE(10)| 文档类型节点,向为文档定义的实体提供接口| 
 | 11	|  Node.DOCUMENT_FRAGMENT_NODE(11) | 文档片段节点,代表轻量级的 Document 对象，能够容纳文档的某个部分| 
-| 12	| Node.DOCUMENT_FRAGMENT_NODE(11)| DTD声明节点  | 
+| 12	| Node.Notation_NODE(11)| DTD声明节点  | 
 
 DOM定义了一个Node接口，这个接口在javascript中是作为Node类型实现的，而在IE8-浏览器中的所有DOM对象都是以COM对象的形式实现的。所以，IE8-浏览器并不支持Node对象的写法
 
