@@ -37,3 +37,4 @@ C();
 ### 参考
 
 [转向Javascript系列-从setTimeout说事件循环模型 I](http://www.alloyteam.com/2015/10/turning-to-javascript-series-from-settimeout-said-the-event-loop-model/)
+[深入理解 setTimeout、setImmediate、process.nextTick](https://cnodejs.org/topic/58d7d2f26f8b9bf02d1d0b1b)
