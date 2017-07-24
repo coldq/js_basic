@@ -14,6 +14,7 @@
   * [1.10 js其他小技巧](basic/js-else.md)
   * [1.11 Promise原理&实现](basic/promise.md)
   * [1.12 setTimeout、setImmediate、process.nextTick](basic/nextTick-setTimeout.md)
+  * [1.13 正则相关](basic/regexp.md)
 * [2. CSS 基础]()
   * [2.1 display:inline-block 和 float ](css/display-float.md)
   * [2.2 css引入 ](css/link&import.md)
